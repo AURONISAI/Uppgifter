@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!-- nedladdnings sida for GS appen -->
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ladda ner G&S by Samis Jackets pa App Store och Google Play.">
+    <title>GS Appen - Ladda ner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* variabler for dark theme (standard) */
+        :root {
+            --gold: #c8a96e;
+            --bg: #111;
+            --card: #1a1a1a;
+            --text: #f0f0f0;
+            --muted: #888;
+            --ram: rgba(200,169,110,0.2);
+        }
+
+        /* light theme, byter nar man klickar pa knappen */
+        .light {
+            --bg: #f5f0e8;
+            --card: #fff;
+            --text: #111;
+            --muted: #555;
+            --ram: rgba(184,145,58,0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        main {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            display: grid;
+            grid-template-columns: 1fr 250px;
+            gap: 1.5rem;
+        }
+
+        /* hero box med download knappar */
+        .hero {
+            grid-column: 1;
+            background: var(--card);
+            border: 1px solid var(--ram);
+            border-radius: 1.2rem;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-size: 22px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            background: #111;
+        }
+
+        .hero h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .hero p { color: var(--muted); margin-bottom: 1.8rem; }
+
+        /* TODO: kanske lagger till qr kod har sen */
+        .knappar { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+
+        .dl-knapp {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border: 1px solid var(--ram);
+            border-radius: 0.8rem;
+            padding: 0.9rem 1.5rem;
+            width: 100%;
+            max-width: 280px;
+            text-decoration: none;
+            color: var(--text);
+            background: var(--card);
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .dl-knapp:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .dl-knapp svg { width: 28px; height: 28px; fill: currentColor; flex-shrink: 0; }
+        .liten { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; }
+        .stor { font-size: 1rem; font-weight: 600; }
+
+        /* funktioner sektionen */
+        article { grid-column: 1; }
+        article h2 { color: var(--gold); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.8rem; }
+
+        /* container query - nar sektionen ar liten visas 1 kolumn */
+        .funk-wrap { container-type: inline-size; container-name: funk; }
+
+        .funk-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+
+        .funk-kort {
+            background: var(--card);
+            border: 1px solid var(--ram);
+            border-radius: 0.8rem;
+            padding: 1rem;
+            text-align: center;
+
+            /* nesting - css nesting */
+            & .ikon { font-size: 1.8rem; display: block; margin-bottom: 0.4rem; }
+            & .rubrik { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+            & .text { font-size: 0.75rem; color: var(--muted); }
+        }
+
+        @container funk (max-width: 500px) {
+            .funk-grid { grid-template-columns: 1fr; }
+            .funk-kort { font-size: 0.8rem; }
+        }
+
+        /* nyheter sidebar */
+        aside { grid-column: 2; grid-row: 1 / 3; }
+        aside h2 { color: var(--gold); font-size: 1rem; font-weight: 600; margin-bottom: 0.8rem; }
+
+        .nyhet {
+            background: var(--card);
+            border: 1px solid var(--ram);
+            border-radius: 0.75rem;
+            padding: 0.8rem;
+            margin-bottom: 0.6rem;
+
+            & .datum { font-size: 0.65rem; color: var(--muted); }
+            & .titel { font-size: 0.85rem; font-weight: 600; }
+            & .info { font-size: 0.75rem; color: var(--muted); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.75rem;
+            color: var(--muted);
+            border-top: 1px solid var(--ram);
+        }
+        footer a { color: var(--gold); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            main { grid-template-columns: 1fr; }
+            aside { grid-column: 1; grid-row: auto; }
+            .hero h1 { font-size: 1.4rem; }
+        }
+
+        @media (min-width: 601px) {
+            .knappar { flex-direction: row; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="bg-black border-b border-yellow-900 px-5 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-yellow-500 font-bold text-lg">G&amp;S</span>
+                <span class="text-gray-500 text-sm hidden sm:inline">by Samis Jackets</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://samisjackets.com" class="text-gray-400 hover:text-yellow-500 text-sm">Butik</a>
+                <a href="https://samisjackets.com/pages/om-oss" class="text-gray-400 hover:text-yellow-500 text-sm hidden sm:inline">Om oss</a>
+                <a href="https://samisjackets.com/pages/kontakt" class="text-gray-400 hover:text-yellow-500 text-sm hidden sm:inline">Kontakt</a>
+                <button id="tema-btn" class="bg-yellow-700 text-white text-xs px-3 py-1 rounded-full">Tema</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="logo">G&amp;S</div>
+            <h1>Ladda ner appen</h1>
+            <p>Shoppa jackor och klanningar direkt i mobilen</p>
+
+            <div class="knappar">
+                <a href="https://apps.apple.com/se/app/samis-jackets/id6757921906" class="dl-knapp">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <div>
+                        <div class="liten">Ladda ner pa</div>
+                        <div class="stor">App Store</div>
+                    </div>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.samijackets.store" class="dl-knapp">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.3 2.3-8.636-8.632z"/>
+                    </svg>
+                    <div>
+                        <div class="liten">Ladda ner pa</div>
+                        <div class="stor">Google Play</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <article>
+            <h2>Vad kan man gora i appen?</h2>
+            <div class="funk-wrap">
+                <div class="funk-grid">
+                    <div class="funk-kort">
+                        <span class="ikon">&#128085;</span>
+                        <div class="rubrik">Premium Mode</div>
+                        <div class="text">Jackor och klanningar handplockat</div>
+                    </div>
+                    <div class="funk-kort">
+                        <span class="ikon">&#127380;</span>
+                        <div class="rubrik">VIP Live</div>
+                        <div class="text">Handla live med bra priser</div>
+                    </div>
+                    <div class="funk-kort">
+                        <span class="ikon">&#128276;</span>
+                        <div class="rubrik">Push-erbjudanden</div>
+                        <div class="text">Fa notiser nar det ar rea</div>
+                    </div>
+                    <div class="funk-kort">
+                        <span class="ikon">&#127775;</span>
+                        <div class="rubrik">Membership</div>
+                        <div class="text">Bronze till platinum niva</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <aside>
+            <h2>Nyheter</h2>
+            <div class="nyhet">
+                <div class="datum">Mars 2026</div>
+                <div class="titel">Version 1.3 ute!</div>
+                <div class="info">Ny checkout och snabbare app.</div>
+            </div>
+            <div class="nyhet">
+                <div class="datum">Feb 2026</div>
+                <div class="titel">Google Play godkand</div>
+                <div class="info">Nu pa bade iOS och Android!</div>
+            </div>
+            <div class="nyhet">
+                <div class="datum">Jan 2026</div>
+                <div class="titel">Spin &amp; Win</div>
+                <div class="info">Vinn produkter i appen.</div>
+            </div>
+            <div class="nyhet">
+                <div class="datum">Dec 2025</div>
+                <div class="titel">1000+ nedladdningar</div>
+                <div class="info">Tack till alla kunder!</div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Samis Jackets AB - Kungsgatan 24, Eskilstuna</p>
+        <p><a href="https://samisjackets.com">samisjackets.com</a></p>
+    </footer>
+
+    <script>
+        // tema knapp, byter dark/light
+        var temaBtn = document.getElementById("tema-btn");
+        var isLight = false;
+
+        temaBtn.addEventListener("click", function() {
+            isLight = !isLight;
+            if (isLight == true) {
+                document.body.classList.add("light");
+                temaBtn.textContent = "Mork";
+            } else {
+                document.body.classList.remove("light");
+                temaBtn.textContent = "Tema";
+            }
+        });
+    </script>
+</body>
+</html>

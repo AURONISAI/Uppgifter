@@ -1,0 +1,253 @@
+--- Page 1 (Embedded) ---
+Öva: Räta linjens ekvation
+Matematik nivå 2c
+ Tillbaka till kursen
+(/studentcourses/3295196#exam59599431)
+Teckenförklaring:
+ Sparat 
+ Sparar nu 
+ Fel vid sparning
+Dina svar sparas automatiskt efter varje ändring
+Visa återstående tid
+
+
+
+Du undersöker sambandet mellan studietid och provresultat. Du skriver in följande data i GeoGebra Statistik-
+kalkylator:
+(https://storage.omniway.se/quilluploads/40c6c15d84ed20a89665bb1fd2445564.png)
+Efter att ha klickat på "Analysera" får du fram regressionslinjen och ett r-värde. Vilket av följande r-värden är
+rimligast utifrån datamängden?
+A. r ≈ 0,1
+B. r ≈ 0,95
+C. r ≈ –0,8
+Senaste
+A
+B
+C
+Tiden är slut! Det är dags att lämna in uppgiften.
+×
+ 
+22/04/2026, 16:19
+Öva: Räta linjens ekvation - Omniw ay
+https://omniw ay.se/exam/59599431
+1/5
+
+--- Page 1 (OCR) ---
+22/04/2026, 16:19
+Öva: Räta linjens ekvation
+Omniw ay
+Öva: Räta linjens ekvation
+Matematik nivå 2c
+Tillbaka till kursen
+(Istudentcourses/3295196#exam59599431)
+Visa återstående tid
+Teckenförklaring:
+Sparat 8 Sparar nu
+Fel vid sparning
+Dina svar sparas automatiskt efter varje ändring
+Du undersöker sambandet mellan studietid och provresultat. Du skriver in följande data
+GeoGebra Statistik -
+kalkylator:
+Studietid (x)
+Provresultat (y)
+10
+18
+3
+23
+28
+5
+34
+(https:llstorageomniway.se/quilluploads/ 4Oc6c15d84ed20a89665bb1fd2445564.png)
+Efter att ha klickat på "Analysera" får du fram regressionslinjen och ett r-värde. Vilket av följande r-värden är
+rimligast utifrån datamängden?
+A.r =0,1
+B.r =0,95
+C.r =-0,8
+Senaste
+Tiden är Slut! Det är dags att lämna in uppgiften:
+https:Ilomniw ay.selexam59599431
+1/5
+
+--- Page 2 (Embedded) ---
+Vad är lutningen på linjen y = 3x - 4?
+Senaste
+-4
+3
+4
+-3
+Vad är skärningspunkten med y-axeln för linjen y = -2x + 5?
+Senaste
+-2
+2
+-5
+5
+Vilket av följande beskriver en linje som är horisontell?
+Senaste
+y = 2x
+y = 5
+x = 5
+Tiden är slut! Det är dags att lämna in uppgiften.
+ 
+22/04/2026, 16:19
+Öva: Räta linjens ekvation - Omniw ay
+https://omniw ay.se/exam/59599431
+2/5
+
+--- Page 2 (OCR) ---
+22/04/2026, 16:19
+Öva: Räta linjens ekvation
+Omniw ay
+Vad är lutningen på linjen y = 3x - 4?
+Senaste
+43
+Vad är skärningspunkten med y-axeln för linjen y = -2x + 5?
+Senaste
+42
+45
+O
+Vilket av följande beskriver en linje som är horisontell?
+Senaste
+y = 2x
+V = 5
+Tidenär slutgDet är dags att lämna in uppgiften:
+https:Ilomniw ay.selexam59599431
+2/5
+
+--- Page 3 (Embedded) ---
+x = 0
+Vilken av följande linjer är parallell med y = 4x + 3?
+Senaste
+y = -4x + 2
+y = 4x - 5
+y = 2x + 4
+y = -x + 4
+Vilken av följande linjer är vinkelrät mot y = 2x - 3?
+Senaste
+y = -0,5x + 4
+y = 2x + 1
+y = -2x + 3
+y = 0,5x - 4
+Vilket är korrekt sätt att beräkna lutningen mellan två punkter (2, 3) och (5, 9)?
+Senaste
+ (https://storage.omniway.se/quilluploads/468688efe3168b012a3eaf85e552ba99.png)
+Tiden är slut! Det är dags att lämna in uppgiften.
+22/04/2026, 16:19
+Öva: Räta linjens ekvation - Omniw ay
+https://omniw ay.se/exam/59599431
+3/5
+
+--- Page 3 (OCR) ---
+22/04/2026, 16:19
+Öva: Räta linjens ekvation
+Omniw ay
+X = 0
+Vilken av följande linjer är parallell med y = 4X + 3?
+Senaste
+V = ~4X + 2
+0 y = 4x - 5
+V = 2X + 4
+Y = -X+ 4
+Vilken av följande linjer är vinkelrät mot y = 2x - 3?
+Senaste
+y = -0,5x + 4
+V = 2x + 1
+V = -2x + 3
+V = 0,5x - 4
+Vilket är korrekt sätt att beräkna lutningen mellan två punkter (2, 3) och (5, 9)?
+Senaste
+Tiden âr 9ur_'päpgaBs ð* gërBRñ/fMppRftAnuploads / 468688efe31686012a3eaf85e552ba99,png) 
+5
+= 2
+https:Ilomniw ay.selexam59599431
+3/5
+
+--- Page 4 (Embedded) ---
+ (https://storage.omniway.se/quilluploads/c49440bc5e269fc7ceade6f3f50fcc1c.png)
+ (https://storage.omniway.se/quilluploads/6a37867e46989d5f9021db5eb21a8383.png)
+ (https://storage.omniway.se/quilluploads/76522e7640b38d511b66be0bf147e0d5.png)
+Vilken av följande linjer är den allmänna formen för en linje?
+Senaste
+Ax + By = C
+y = kx + m
+x = ay + b
+y = mx  + b
+2
+Lös ekvationssystemet:
+ (https://storage.omniway.se/quilluploads/48432b259175eba6f204fa2ca02a8754.png)
+
+Senaste
+x = 1, y = 5
+x = 2, y = 4
+x = -1, y = -3
+x = -5, y = -7
+Vilket av följande ekvationssystem har ingen lösning?
+Tiden är slut! Det är dags att lämna in uppgiften.
+22/04/2026, 16:19
+Öva: Räta linjens ekvation - Omniw ay
+https://omniw ay.se/exam/59599431
+4/5
+
+--- Page 4 (OCR) ---
+22/04/2026, 16:19
+Öva: Räta linjens ekvation
+Omniw ay
+9-2 (https:llstorage omniway.selquilluploads / c4944Obc5e269fc7ceadegf3fsOfccIcpng)
+2-5
+5-2(https:llstorage omniwayse/quilluploads/6a37867e46989d5f9021db5eb21a8383.png)
+9-3
+2-5
+(https:llstorageomniwayse/quilluploads/76522e7640638d51 1b66beObf 147eOd5.png)
+3-9
+Vilken av följande linjer är den allmänna formen för en linje?
+Senaste
+Ax + By = C
+V = kx + m
+X = ay + b
+y = mx2 + b
+Lös ekvationssystemet:
+Sy
+2x + 3
+(https:llstorage omniway.se/quilluploads/ 48432b259175eba6f204fa2ca02a8754.p88)
+y = x = 2
+Senaste
+X =
+1, V = 5
+x =2, V = 4
+X=-1, V = -3
+X =-5, Y = -7
+Tidikat zuifëðæedP 8kgstiengs ateñ ú}35g/7882 lösning?
+https:Ilomniw ay.selexam59599431
+4/5
+
+--- Page 5 (Embedded) ---
+Lämna in uppgift
+Senaste
+y = 2x + 3 och y = 2x - 4
+y = 3x + 2 och y = -x + 5
+y = 0,5x + 1 och y = -0,5x - 3
+y = -x + 4 och y = x - 4
+Tiden är slut! Det är dags att lämna in uppgiften.
+22/04/2026, 16:19
+Öva: Räta linjens ekvation - Omniw ay
+https://omniw ay.se/exam/59599431
+5/5
+
+--- Page 5 (OCR) ---
+22/04/2026, 16:19
+Räta linjens ekvation
+Omniw ay
+Senaste
+y = 2x + 3 och y = 2x - 4
+V = 3x + 2 och y = -X + 5
+V = 0,5x-
+och
+Y = -0,5x - 3
+V = -X+ 4 och y = X - 4
+Lämna in
+Tiden är slut! Det är dags att lämna in
+uppgiften:
+https:Ilomniw ay.selexam59599431
+5/5
+Ova:
+uppgift
+
