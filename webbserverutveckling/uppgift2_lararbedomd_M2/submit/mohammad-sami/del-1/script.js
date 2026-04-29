@@ -1,40 +1,49 @@
 // Mohammad Sami Alsharef
-// gemensam js for hela webbplatsen. tema-knapp + canvas-rektangel
+// gemensam js. tema-knapp + canvas. samma stil som GS appen sidan (var, ==).
 
-// ---- tema toggle (mork / ljus) ----
-function vaxlaTema() {
-  document.body.classList.toggle("dark");
-  // sparar valet sa det halls kvar nar man byter sida
-  if (document.body.classList.contains("dark")) {
-    localStorage.setItem("tema", "dark");
-  } else {
-    localStorage.setItem("tema", "ljus");
-  }
+// tema knapp - byter dark/light. dark ar default.
+var temaBtn = document.getElementById("tema-btn");
+var isLight = false;
+
+// kollar om man redan valt light forra gangen
+if (localStorage.getItem("tema") == "light") {
+  document.body.classList.add("light");
+  isLight = true;
 }
 
-// ladda tidigare val nar sidan oppnas
-window.addEventListener("DOMContentLoaded", function() {
-  var sparat = localStorage.getItem("tema");
-  if (sparat === "dark") {
-    document.body.classList.add("dark");
-  }
+if (temaBtn) {
+  temaBtn.addEventListener("click", function() {
+    isLight = !isLight;
+    if (isLight == true) {
+      document.body.classList.add("light");
+      temaBtn.textContent = "Mork";
+      localStorage.setItem("tema", "light");
+    } else {
+      document.body.classList.remove("light");
+      temaBtn.textContent = "Tema";
+      localStorage.setItem("tema", "dark");
+    }
+  });
+}
 
-  // koppla knappen om den finns pa sidan
-  var knapp = document.getElementById("tema-knapp");
-  if (knapp) {
-    knapp.addEventListener("click", vaxlaTema);
-  }
+// om sidan har en canvas, rita en jacka-skylt
+var c = document.getElementById("minCanvas");
+if (c) {
+  var ctx = c.getContext("2d");
 
-  // om sidan har en canvas, rita rektangel
-  var c = document.getElementById("minCanvas");
-  if (c) {
-    var ctx = c.getContext("2d");
-    ctx.fillStyle = "#1f3a5f";
-    ctx.fillRect(40, 30, 220, 120);
+  // gold ram
+  ctx.fillStyle = "#c8a96e";
+  ctx.fillRect(20, 20, 280, 140);
 
-    // text ovanpa
-    ctx.fillStyle = "#c8a96e";
-    ctx.font = "bold 20px Arial";
-    ctx.fillText("Hej fran canvas!", 60, 95);
-  }
-});
+  // svart insida
+  ctx.fillStyle = "#000";
+  ctx.fillRect(28, 28, 264, 124);
+
+  // text - GS logga
+  ctx.fillStyle = "#c8a96e";
+  ctx.font = "bold 28px Arial";
+  ctx.fillText("G&S", 130, 80);
+
+  ctx.font = "12px Arial";
+  ctx.fillText("by Samis Jackets", 100, 110);
+}

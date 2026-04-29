@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Three.js - Mohammad Sami</title>
+  <title>3D-jacka - G&amp;S Mediagalleri</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -11,28 +11,35 @@
 
 <nav class="meny">
   <ul>
+    <li><span class="brand">G&amp;S</span></li>
     <li><a href="index.html">Start</a></li>
-    <li><a href="bild.html">1. Bild</a></li>
-    <li><a href="ljud.html">2. Ljud</a></li>
-    <li><a href="video.html">3. Video</a></li>
-    <li><a href="canvas.html">4. Canvas</a></li>
-    <li><a href="bg-bild.html">5. Bakgrundsbild</a></li>
-    <li><a href="bg-video.html">6. Bakgrundsvideo</a></li>
-    <li><a href="three.html" class="aktiv">7. Three.js</a></li>
-    <li><a href="aframe.html">8. A-Frame</a></li>
-    <li><button id="tema-knapp" type="button">Mork/Ljus</button></li>
+    <li><a href="bild.html">Jacka</a></li>
+    <li><a href="ljud.html">Jingle</a></li>
+    <li><a href="video.html">Reklam</a></li>
+    <li><a href="canvas.html">Logga</a></li>
+    <li><a href="bg-bild.html">Butik</a></li>
+    <li><a href="bg-video.html">Catwalk</a></li>
+    <li><a href="three.html" class="aktiv">3D-jacka</a></li>
+    <li><a href="aframe.html">VR-butik</a></li>
+    <li><button id="tema-btn" type="button">Tema</button></li>
   </ul>
 </nav>
 
 <main>
-  <h1>Sida 7 - 3D med Three.js</h1>
-  <p>En kub med en bildtextur som roterar. Three.js laddas fran ett CDN
-  och scenen byggs i <code>three-scen.js</code>.</p>
+  <h1>Sida 7 - 3D-produkt med Three.js</h1>
+  <p>En kub med en bildtextur som roterar - tanken ar en framtida 360-vy
+  pa produktsidorna i appen sa kunden kan se jackan fran alla hall.
+  Three.js laddas fran ett CDN och scenen byggs i <code>three-scen.js</code>.</p>
 
   <div id="three-box"></div>
+
+  <p style="font-size:14px;color:#888;margin-top:14px">
+    (For nu ar texturen bara en demo-textur fran threejs.org. Senare ska
+    den ersattas med en riktig produktbild.)
+  </p>
 </main>
 
-<footer>Mohammad Sami Alsharef - Webbutveckling 2</footer>
+<footer>Mohammad Sami Alsharef &middot; Samis Jackets &middot; Webbutveckling 2</footer>
 
 <!-- three.js fran officiella CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
