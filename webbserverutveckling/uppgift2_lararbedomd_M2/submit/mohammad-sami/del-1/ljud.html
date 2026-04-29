@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ljud - Mohammad Sami</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<nav class="meny">
+  <ul>
+    <li><a href="index.html">Start</a></li>
+    <li><a href="bild.html">1. Bild</a></li>
+    <li><a href="ljud.html" class="aktiv">2. Ljud</a></li>
+    <li><a href="video.html">3. Video</a></li>
+    <li><a href="canvas.html">4. Canvas</a></li>
+    <li><a href="bg-bild.html">5. Bakgrundsbild</a></li>
+    <li><a href="bg-video.html">6. Bakgrundsvideo</a></li>
+    <li><a href="three.html">7. Three.js</a></li>
+    <li><a href="aframe.html">8. A-Frame</a></li>
+    <li><button id="tema-knapp" type="button">Mork/Ljus</button></li>
+  </ul>
+</nav>
+
+<main>
+  <h1>Sida 2 - Ljud med &lt;audio&gt;</h1>
+  <p>Anvandaren kan starta och stoppa ljudet med kontrollerna nedan.
+  Det funkar tack vare attributet <code>controls</code> pa
+  <code>&lt;audio&gt;</code>-taggen.</p>
+
+  <audio controls>
+    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+    <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+    Din webblasare stodjer inte audio-taggen.
+  </audio>
+
+  <p style="margin-top:14px">Jag har lagt in tva format (mp3 och ogg) sa att
+  webblasaren kan valja det som funkar bast.</p>
+</main>
+
+<footer>Mohammad Sami Alsharef - Webbutveckling 2</footer>
+
+</body>
+</html>

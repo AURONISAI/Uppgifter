@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas - Mohammad Sami</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<nav class="meny">
+  <ul>
+    <li><a href="index.html">Start</a></li>
+    <li><a href="bild.html">1. Bild</a></li>
+    <li><a href="ljud.html">2. Ljud</a></li>
+    <li><a href="video.html">3. Video</a></li>
+    <li><a href="canvas.html" class="aktiv">4. Canvas</a></li>
+    <li><a href="bg-bild.html">5. Bakgrundsbild</a></li>
+    <li><a href="bg-video.html">6. Bakgrundsvideo</a></li>
+    <li><a href="three.html">7. Three.js</a></li>
+    <li><a href="aframe.html">8. A-Frame</a></li>
+    <li><button id="tema-knapp" type="button">Mork/Ljus</button></li>
+  </ul>
+</nav>
+
+<main>
+  <h1>Sida 4 - 2D-grafik med Canvas</h1>
+  <p>Ritar en rektangel med JavaScript. Sjalva ritandet finns i
+  <code>script.js</code> (i <code>DOMContentLoaded</code>-blocket).</p>
+
+  <canvas id="minCanvas" width="320" height="180"></canvas>
+
+  <p>Det jag gor: hamtar canvas-elementet, hamtar 2d-context, satter farg
+  och anropar <code>fillRect(x, y, bredd, hojd)</code>. Sen lagger jag till
+  text ovanpa.</p>
+</main>
+
+<footer>Mohammad Sami Alsharef - Webbutveckling 2</footer>
+
+</body>
+</html>

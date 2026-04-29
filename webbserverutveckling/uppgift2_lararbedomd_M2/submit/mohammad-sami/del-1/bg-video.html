@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakgrundsvideo - Mohammad Sami</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-video">
+
+<!-- video som ligger bakom hela sidan, autoplay + muted + loop -->
+<div class="bg-video-wrapper">
+  <video autoplay muted loop playsinline>
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+  </video>
+</div>
+
+<nav class="meny">
+  <ul>
+    <li><a href="index.html">Start</a></li>
+    <li><a href="bild.html">1. Bild</a></li>
+    <li><a href="ljud.html">2. Ljud</a></li>
+    <li><a href="video.html">3. Video</a></li>
+    <li><a href="canvas.html">4. Canvas</a></li>
+    <li><a href="bg-bild.html">5. Bakgrundsbild</a></li>
+    <li><a href="bg-video.html" class="aktiv">6. Bakgrundsvideo</a></li>
+    <li><a href="three.html">7. Three.js</a></li>
+    <li><a href="aframe.html">8. A-Frame</a></li>
+    <li><button id="tema-knapp" type="button">Mork/Ljus</button></li>
+  </ul>
+</nav>
+
+<main>
+  <h1>Sida 6 - Bakgrundsvideo</h1>
+  <p>En <code>&lt;video&gt;</code> ligger i en wrapper-div med
+  <code>position: fixed</code> och <code>z-index: -1</code> sa att den
+  hamnar bakom resten av innehallet.</p>
+
+  <p>Videon ar muted och har autoplay (manga webblasare kraver muted for
+  att autoplay ska tillatas).</p>
+</main>
+
+<footer>Mohammad Sami Alsharef - Webbutveckling 2</footer>
+
+</body>
+</html>

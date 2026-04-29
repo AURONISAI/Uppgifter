@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three.js - Mohammad Sami</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<nav class="meny">
+  <ul>
+    <li><a href="index.html">Start</a></li>
+    <li><a href="bild.html">1. Bild</a></li>
+    <li><a href="ljud.html">2. Ljud</a></li>
+    <li><a href="video.html">3. Video</a></li>
+    <li><a href="canvas.html">4. Canvas</a></li>
+    <li><a href="bg-bild.html">5. Bakgrundsbild</a></li>
+    <li><a href="bg-video.html">6. Bakgrundsvideo</a></li>
+    <li><a href="three.html" class="aktiv">7. Three.js</a></li>
+    <li><a href="aframe.html">8. A-Frame</a></li>
+    <li><button id="tema-knapp" type="button">Mork/Ljus</button></li>
+  </ul>
+</nav>
+
+<main>
+  <h1>Sida 7 - 3D med Three.js</h1>
+  <p>En kub med en bildtextur som roterar. Three.js laddas fran ett CDN
+  och scenen byggs i <code>three-scen.js</code>.</p>
+
+  <div id="three-box"></div>
+</main>
+
+<footer>Mohammad Sami Alsharef - Webbutveckling 2</footer>
+
+<!-- three.js fran officiella CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="three-scen.js"></script>
+
+</body>
+</html>

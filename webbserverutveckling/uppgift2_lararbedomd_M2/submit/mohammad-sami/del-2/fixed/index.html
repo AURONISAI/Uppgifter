@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- FIX: lade till lang="sv" sa skarmlasare och webblasare vet att sidan ar pa svenska -->
+<html lang="sv">
+<head>
+  <!-- FIX: charset och viewport saknades -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FIX: bytte fran "Felaktig Webbsida" till en beskrivande titel -->
+  <title>Min startsida - exempel</title>
+
+  <link rel="stylesheet" href="style.css">
+  <!-- FIX: la till defer sa scriptet inte blockar laddningen -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<h1>Valkommen till min sida</h1>
+
+<nav>
+  <!-- FIX: lankarna hade vag text "Klicka har" och pekade pa #. Ersatte med tydliga lankar -->
+  <a href="index.html">Hem</a>
+  <a href="om.html">Om mig</a>
+</nav>
+
+<!-- FIX: img saknade alt-text och bilden hav.webp fanns inte. Bytte till en bild som finns och la till alt -->
+<img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&q=70"
+     alt="Vagor som rullar in mot en strand i solnedgang"
+     width="600">
+
+<!-- FIX: formularet saknade label och method. Nu finns label kopplad med for/id, samt method="post" -->
+<form action="#" method="post">
+  <label for="namn">Ditt namn:</label>
+  <input type="text" id="namn" name="namn" required>
+  <button type="submit">Skicka</button>
+</form>
+
+</body>
+</html>
