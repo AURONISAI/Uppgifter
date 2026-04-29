@@ -1,6 +1,4 @@
-# Mohammad Sami Alsharef
-# bibliotekssystem lararbedomd 4
-# meny + input. db-grejerna ligger i databas.py
+# bibliotekssystem 
 
 import databas
 

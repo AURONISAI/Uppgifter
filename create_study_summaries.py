@@ -624,6 +624,67 @@ def create_webb():
     bullet(d, "Mobil: 1 kolumn, sidebar under main, mindre rubrik")
     bullet(d, "Knappar: column på mobil, row på desktop")
 
+    line(d)
+
+    # ── Uppgift 2 (M2) ──
+    h1(d, "5 · Uppgift 2 (M2): G&S Mediagalleri + Felfix")
+
+    h2(d, "Vad du byggde (Del 1)")
+    txt(d, "Fortsättning på G&S/Samis Jackets-sidan från uppgift 1 — samma dark/gold-tema, samma tema-knapp, samma brand. 9 sidor som visar olika multimedia-tekniker, alla kopplade till butikens innehåll.")
+
+    h2(d, "8 sidor + start")
+    bullet(d, "Jacka — <img> med beskrivande alt-text (produktbild)")
+    bullet(d, "Jingle — <audio controls> med två format (mp3 + ogg)")
+    bullet(d, "Reklam — <video controls> i sidan")
+    bullet(d, "Logga — <canvas> med JS som ritar G&S-loggan (fillRect + text)")
+    bullet(d, "Butik — body med background-image (CSS), fixed bakgrund")
+    bullet(d, "Catwalk — <video autoplay muted loop> i wrapper med position:fixed, z-index:-1")
+    bullet(d, "3D-jacka — Three.js: BoxGeometry + TextureLoader + animationsloop")
+    bullet(d, "VR-butik — A-Frame: <a-scene>, <a-box animation>, <a-sphere>, <a-plane>, <a-sky>, <a-text>")
+
+    h2(d, "Bonus 1 — Tema-knapp som sparar val")
+    txt(d, 'localStorage.setItem("tema","light") + classList.add("light"). Vid sidladdning kollar man localStorage och lägger på .light-klassen om den var sparad. Samma id "tema-btn" som i uppgift 1.')
+
+    h2(d, "Bonus 2 — Animerad CSS-bakgrund")
+    txt(d, "linear-gradient(120deg, ...) + background-size: 400% 400% + @keyframes rorelse som flyttar background-position från 0% till 100% och tillbaka. animation: rorelse 12s ease infinite.")
+
+    h2(d, "Canvas — så ritar man en form")
+    bullet(d, "var c = document.getElementById('minCanvas')")
+    bullet(d, "var ctx = c.getContext('2d')")
+    bullet(d, "ctx.fillStyle = '#c8a96e'")
+    bullet(d, "ctx.fillRect(x, y, bredd, höjd)")
+    bullet(d, "ctx.font = 'bold 28px Arial'; ctx.fillText('G&S', 130, 80)")
+
+    h2(d, "Three.js — minsta scen")
+    bullet(d, "Scene → PerspectiveCamera → WebGLRenderer.setSize(...).appendChild()")
+    bullet(d, "TextureLoader().load(url) → MeshBasicMaterial({map: textur})")
+    bullet(d, "BoxGeometry → Mesh(geometri, material) → scene.add(kub)")
+    bullet(d, "requestAnimationFrame-loop som roterar och anropar renderer.render(scene, camera)")
+
+    h2(d, "Bakgrundsvideo-tricket")
+    txt(d, "video i en wrapper-div med position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; overflow:hidden. Sen video { width:100%; height:100%; object-fit:cover }. Glöm inte muted (autoplay kräver det).")
+
+    line(d)
+
+    # ── Uppgift 2 — Del 2 ──
+    h1(d, "6 · Uppgift 2 (M2): Del 2 — Felfix")
+
+    h2(d, "Värsta JS-buggen")
+    txt(d, "Saknad stängande } i function test() — gav SyntaxError och hela scriptet kraschade. Kolla alltid browser-konsolen när JS inte fungerar.")
+
+    h2(d, "Andra typiska fel att leta efter")
+    bullet(d, "<img> utan alt-text → tillgänglighetsfel")
+    bullet(d, "<input> utan kopplad <label for='id'> → tillgänglighetsfel")
+    bullet(d, "Ingen <!DOCTYPE html>, ingen <meta charset>, ingen viewport")
+    bullet(d, "Vag länktext typ 'Klicka här' → dåligt för skärmläsare")
+    bullet(d, "Dålig kontrast: lightgray text på #eee bakgrund — oläsbart")
+    bullet(d, "font-size: 9px → för litet")
+    bullet(d, "var x istället för const/let, missade semikolon")
+    bullet(d, "Funktion definierad men aldrig anropad")
+
+    h2(d, "Färgkontrast-regel (WCAG)")
+    txt(d, "Text mot bakgrund ska ha ratio ≥ 4.5:1 för normal text. lightgray (#D3D3D3) på #eee = nästan samma färg = fail.")
+
     save(d, os.path.join(BASE, "webbserverutveckling", "BM_PREP"), "STUDY_SUMMARY.docx")
 
 

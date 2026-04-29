@@ -225,6 +225,47 @@ h(d, 'If They Ask What You Would Improve', level=1)
 qa(d, 'Good answer:',
    'I would add a QR code so people can scan and download easily. I would also move the CSS to its own file if the site gets bigger. Maybe add animations on the feature cards and a customer reviews section.')
 
+# ---- Uppgift 2 (M2 - lararbedomd) ----
+h(d, 'Uppgift 2 - M2 Mediagalleri + Felfix (Lararbedomd)', level=1)
+line(d, 'Same Samis Jackets brand and dark/gold theme as Uppgift 1 - this is a continuation, not a new project.')
+
+qa(d, 'What does Del 1 contain?',
+   'A G&S Mediagalleri website with 9 pages (start + 8 demos): Jacka (img), Jingle (audio), Reklam (video), Logga (canvas), Butik (background-image), Catwalk (background-video), 3D-jacka (Three.js), VR-butik (A-Frame). All pages share a sticky nav and the same dark/gold theme as the GS appen page.')
+
+qa(d, 'What are the bonuses?',
+   'Theme button (dark default / light) that saves the choice in localStorage so it stays across pages. Animated CSS background on the start page that loops between gold and black using @keyframes.')
+code(d, 'localStorage.setItem("tema", "light");  // remembers theme between pages')
+code(d, '@keyframes rorelse { 0%{background-position:0% 50%} 50%{100% 50%} 100%{0% 50%} }')
+
+qa(d, 'How is Del 1 connected to Uppgift 1?',
+   'Same brand (Samis Jackets / G&S), same color palette (#111 background, #c8a96e gold), same theme button id (tema-btn) with the same dark-default behavior, same JS style (var, ==). It is the next page in the same site, not a new idea.')
+
+qa(d, 'Canvas page - what does it draw?',
+   'It draws the G&S logo box - a gold rectangle, a black inner rectangle, the text "G&S" in gold and "by Samis Jackets" underneath. The idea is that we could later draw product badges (NY, REA, VIP) on product images this way.')
+code(d, 'ctx.fillStyle = "#c8a96e"; ctx.fillRect(20, 20, 280, 140);')
+
+qa(d, 'Three.js page - what is it for?',
+   'A textured cube that rotates - meant as a future 360-degree product view. The texture is loaded with TextureLoader and applied to a BoxGeometry. The animation loop uses requestAnimationFrame to rotate the cube on x and y.')
+
+qa(d, 'A-Frame page - what is in the scene?',
+   'A 3D scene with a gold rotating box, a red sphere, a dark plane as floor, a black sky and a gold text "Samis Jackets - VR demo". Idea: a mini VR butik people can walk around in.')
+
+qa(d, 'What was Del 2?',
+   'Three buggy files from the teachers GitHub - I had to find all the bugs and fix them with Swedish comments explaining each fix.')
+
+qa(d, 'Worst bug in script.js?',
+   'A missing closing bracket } after console.log(x). That made the whole script crash with a SyntaxError - nothing in the file ran at all. I added the } and changed var to const, added semicolons, gave the function a real name (visaTal instead of test) and actually called it.')
+code(d, 'function visaTal() { const x = 10; console.log(x); }  // FIXED: added }')
+
+qa(d, 'Worst HTML bugs?',
+   'No DOCTYPE, no charset, no viewport, img with no alt and a missing image, input with no label, vague "Klicka har" link, useless title. I fixed all of them and explained each one with a Swedish comment.')
+
+qa(d, 'Worst CSS bugs?',
+   'lightgray text on #eee background - basically unreadable, fails accessibility. font-size: 9px way too small. lightblue links also unreadable. No responsive rules at all. I changed text to #222, font to 16px, links to dark blue and added a media query.')
+
+qa(d, 'What did you learn from Del 2?',
+   'Always open the browser console when something does not work - a missing } showed up immediately as a SyntaxError. Always put alt on images and label on inputs. Always check color contrast.')
+
 save(d, os.path.join(BASE, '..', 'webbserverutveckling', 'BM_PREP', 'MY_SUBMISSIONS_Prep.docx'))
 
 print('\nAll 3 course prep docs created!')
