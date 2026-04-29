@@ -159,7 +159,35 @@ qa('How did you use quotes?',
 qa('Compare viewpoints?',
    'Adichie: compared HER OWN bias (Mexico) with others\' (roommate). Speech: accents as positive AND source of bias.')
 
-qa('Novel?', 'Nothing submitted yet. Be honest. Mention theme, character, quote if you can.')
+qa('Novel?',
+   'Klara and the Sun (Ishiguro). Submitted Part B first draft. Thesis: a person can\'t be copied; what makes Josie "Josie" lives in the people who love her, not inside her body. PEEL x3: (1) Capaldi\'s plan fails on its own logic - "Nothing inside Josie that\'s beyond the Klaras of this world to continue" p.224. (2) Klara in the Yard - "something very special, but it wasn\'t inside Josie. It was inside those who loved her" p.306. (3) Rick + lifting system - "Whatever happens, you and me, we\'ll always be together" p.173.')
+
+# ====== A4: COMMUNITY VOICES ======
+h('A4 - Community Voices (UK Stereotypes) - Parts A & B')
+
+qa('Part A topic?',
+   'Argumentative speech, 5-6 min. UK audience. Topic 1: breaking down cultural stereotypes. Refuted "stereotypes are just harmless jokes."')
+
+qa('Part A 3 points?',
+   '(1) Stereotypes pull people apart - Lesson 13 Open Letter to Fellow Students. (2) We already know what helps - Lesson 14 critical reading method. (3) Local leaders matter - UK Gov Ethnicity facts and figures.')
+
+qa('Part A sources?',
+   'Lesson 13 (Open Letter, Two Kinds, Jaymee\'s Extended Break). Lesson 14 (To My Old Master, School Shooters, Black American Culture). UK Government Ethnicity facts and figures.')
+
+qa('Part B novel + thesis?',
+   'Klara and the Sun by Kazuo Ishiguro. Thesis (~65 words): a person can\'t be copied even with perfect tech; what makes Josie unique sits in the people who love her, not inside her body.')
+
+qa('Part B PEEL 1 - Capaldi?',
+   'Capaldi believes the replica will work. Quote p.224: "Nothing inside Josie that\'s beyond the Klaras of this world to continue." Plan fails on its own logic - even the Mother doesn\'t really believe she could love a copy.')
+
+qa('Part B PEEL 2 - Klara in the Yard?',
+   'Klara herself rejects the copy idea by the end. Quote p.306: "There was something very special, but it wasn\'t inside Josie. It was inside those who loved her." The "specialness" is relational.')
+
+qa('Part B PEEL 3 - Rick?',
+   'Lifting system locates worth in genes - same mistake Capaldi makes. Quote p.173: "Whatever happens, you and me, we\'ll always be together." Rick\'s value lives in bonds (Josie, his mum, Klara).')
+
+qa('Part B word count?',
+   '619 words total. Thesis 64. Bodies 177 / 183 / 189. Within 500-675. No intro, no conclusion (per brief).')
 
 line('')
 line('Don\'t recite. Say "in my analysis I wrote..." and explain naturally. These ARE your words.')
