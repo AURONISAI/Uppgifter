@@ -160,7 +160,7 @@ qa('Compare viewpoints?',
    'Adichie: compared HER OWN bias (Mexico) with others\' (roommate). Speech: accents as positive AND source of bias.')
 
 qa('Novel?',
-   'Klara and the Sun (Ishiguro). Submitted Part B first draft. Thesis: a person can\'t be copied; what makes Josie "Josie" lives in the people who love her, not inside her body. PEEL x3: (1) Capaldi\'s plan fails on its own logic - "Nothing inside Josie that\'s beyond the Klaras of this world to continue" p.224. (2) Klara in the Yard - "something very special, but it wasn\'t inside Josie. It was inside those who loved her" p.306. (3) Rick + lifting system - "Whatever happens, you and me, we\'ll always be together" p.173.')
+   'Klara and the Sun (Ishiguro, Faber 2021). Submitted Part B first draft. Thesis: a person can\'t be copied; what makes Josie "Josie" lives in the people who love her, not inside her body. PEEL x3: (1) Replica face fails on its own - "The face looked disappointed and afraid" p.201. (2) Klara in the Yard - "something very special, but it wasn\'t inside Josie. It was inside those who loved her" (end of Part 6). (3) Rick + lifting system - "I don\'t belong here. This is a meeting for lifted kids" p.82.')
 
 # ====== A4: COMMUNITY VOICES ======
 h('A4 - Community Voices (UK Stereotypes) - Parts A & B')
@@ -177,14 +177,14 @@ qa('Part A sources?',
 qa('Part B novel + thesis?',
    'Klara and the Sun by Kazuo Ishiguro. Thesis (~65 words): a person can\'t be copied even with perfect tech; what makes Josie unique sits in the people who love her, not inside her body.')
 
-qa('Part B PEEL 1 - Capaldi?',
-   'Capaldi believes the replica will work. Quote p.224: "Nothing inside Josie that\'s beyond the Klaras of this world to continue." Plan fails on its own logic - even the Mother doesn\'t really believe she could love a copy.')
+qa('Part B PEEL 1 - Capaldi / replica?',
+   'Capaldi believes the replica will work. Klara sees the model in his studio and the copy fails on its own. Quote p.201: "Her face was very like that of the real Josie, but ... The face looked disappointed and afraid." Even the Mother doesn\'t really believe she could love it.')
 
 qa('Part B PEEL 2 - Klara in the Yard?',
-   'Klara herself rejects the copy idea by the end. Quote p.306: "There was something very special, but it wasn\'t inside Josie. It was inside those who loved her." The "specialness" is relational.')
+   'Klara herself rejects the copy idea at the end. Quote (end of Part 6, talking to Manager): "There was something very special, but it wasn\'t inside Josie. It was inside those who loved her." The "specialness" is relational, not inside the body.')
 
 qa('Part B PEEL 3 - Rick?',
-   'Lifting system locates worth in genes - same mistake Capaldi makes. Quote p.173: "Whatever happens, you and me, we\'ll always be together." Rick\'s value lives in bonds (Josie, his mum, Klara).')
+   'Lifting system locates worth in genes - same mistake Capaldi makes. Quote p.82 (interaction meeting): "I don\'t belong here. This is a meeting for lifted kids." Rick\'s value lives in bonds (Josie, his mum, Klara), not inside his genes.')
 
 qa('Part B word count?',
    '619 words total. Thesis 64. Bodies 177 / 183 / 189. Within 500-675. No intro, no conclusion (per brief).')
