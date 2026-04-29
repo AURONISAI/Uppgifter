@@ -1,7 +1,6 @@
 # Mohammad Sami Alsharef
 # bibliotekssystem lararbedomd 4
-# main-modul: meny och anvandarinmatning
-# databas-funktionerna ligger i en egen fil (databas.py)
+# meny + input. db-grejerna ligger i databas.py
 
 import databas
 

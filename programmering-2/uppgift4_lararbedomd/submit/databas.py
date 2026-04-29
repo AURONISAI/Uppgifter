@@ -1,6 +1,5 @@
 # Mohammad Sami Alsharef
-# databas-modul for bibliotekssystemet
-# har ligger allt som pratar med sqlite-databasen
+# databas-grejer for biblioteket
 
 import sqlite3
 
