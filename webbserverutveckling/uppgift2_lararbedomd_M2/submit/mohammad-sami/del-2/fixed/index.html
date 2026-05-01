@@ -2,7 +2,7 @@
 <!-- FIX: lade till lang="sv" sa skarmlasare och webblasare vet att sidan ar pa svenska -->
 <html lang="sv">
 <head>
-  <!-- FIX: charset och viewport saknades -->
+  <!-- FIX: charset och viewport saknades helt i originalet -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,39 +15,53 @@
 </head>
 <body>
 
-<h1>Samis Jackets</h1>
-<p>Detta ar den FIXADE versionen av lararens trasiga sida.
-Jag har bytt ut det generiska "min sida"-innehallet mot en mini-demo
-av butiken sa det halls ihop med Del 1.</p>
+<header>
+  <h1>Samis Jackets</h1>
+  <p>Detta ar Del 2 - den FIXADE versionen av lararens trasiga sida.
+  Originalet hade ca 14 buggar (se <code>../felanalys.md</code>).
+  Jag har bytt ut det generiska "min sida"-innehallet mot en mini-demo
+  av butiken sa det halls ihop med Del 1.</p>
+</header>
 
-<!-- FIX: lankarna hade vag text "Klicka har" och pekade pa #. Nu beskrivande lankar -->
+<!-- FIX: lankarna i originalet hade vag text ("Klicka har") och pekade pa #.
+     Nu hoppar de till sektioner pa samma sida sa allt funkar utan extra filer. -->
 <nav>
-  <a href="index.html">Hem</a>
-  <a href="om.html">Om butiken</a>
-  <a href="kontakt.html">Kontakt</a>
+  <a href="#produkt">Produkten</a>
+  <a href="#om">Om butiken</a>
+  <a href="#kontakt">Hor av dig</a>
 </nav>
 
-<!-- FIX: img saknade alt-text och bilden hav.webp fanns inte. Bytt till en bild som finns + alt -->
-<div class="produkt">
+<!-- FIX: img saknade alt-text och bilden hav.webp fanns inte. Bytt till en bild som finns + beskrivande alt -->
+<section id="produkt" class="produkt">
   <h2>Inci Coat - Svart</h2>
   <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=900&q=70"
        alt="Svart vinterjacka med pals-krage hangande pa en stallning">
   <p>En av vara mest salda vinterjackor. Vattentat ytterskikt och
   varm fodring. Finns i storlek S-XXL.</p>
   <span class="pris">2 499 kr</span>
-</div>
+</section>
 
-<!-- FIX: formularet saknade label och method. Nu kopplad label via for/id, method="post" -->
-<h2>Hor av dig</h2>
-<form action="#" method="post">
-  <label for="namn">Ditt namn</label>
-  <input type="text" id="namn" name="namn" required>
+<section id="om">
+  <h2>Om butiken</h2>
+  <p>Samis Jackets ar en familjeagd butik som sedan 2010 saljer kvalitetsjackor
+  och accessoarer. Vi har bade fysisk butik och en mobilapp dar du kan handla,
+  se VIP-erbjudanden och delta i live-streams.</p>
+</section>
 
-  <label for="meddelande">Meddelande</label>
-  <input type="text" id="meddelande" name="meddelande" required>
+<!-- FIX: formularet i originalet saknade label, name, type och method.
+     Nu kopplad label via for/id, method="post", och alla falt har name. -->
+<section id="kontakt">
+  <h2>Hor av dig</h2>
+  <form action="#" method="post">
+    <label for="namn">Ditt namn</label>
+    <input type="text" id="namn" name="namn" required>
 
-  <button type="submit">Skicka</button>
-</form>
+    <label for="meddelande">Meddelande</label>
+    <input type="text" id="meddelande" name="meddelande" required>
+
+    <button type="submit">Skicka</button>
+  </form>
+</section>
 
 <footer>Mohammad Sami Alsharef &middot; Del 2 fixad version &middot; Webbutveckling 2</footer>
 

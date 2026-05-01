@@ -27,15 +27,23 @@
 
 <main>
   <h1>Sida 7 - 3D-produkt med Three.js</h1>
-  <p>En kub med en bildtextur som roterar - tanken ar en framtida 360-vy
-  pa produktsidorna i appen sa kunden kan se jackan fran alla hall.
-  Three.js laddas fran ett CDN och scenen byggs i <code>three-scen.js</code>.</p>
+  <p>En komplett 3D-scen byggd med Three.js: en stiliserad jacka pa en
+  podiumsockel som kameran <strong>kretsar runt</strong> 360 grader.
+  Scenen har riktig belysning - ett vitt huvudljus + en sage-gron
+  rim-light som lyfter fram brand-fargen <code>#c3cca6</code> - och
+  skuggor som falls pa golvet (<code>shadowMap</code> med PCF-soft).</p>
+
+  <p>Tanken ar en framtida 360-vy pa produktsidorna i appen sa kunden
+  kan se jackan fran alla hall innan kop. All scen-kod finns i
+  <code>three-scen.js</code> - se hur jag bygger ihop torso, krage,
+  armar och en olive-fargad knapp som en grupp.</p>
 
   <div id="three-box"></div>
 
-  <p style="font-size:14px;color:#888;margin-top:14px">
-    (For nu ar texturen bara en demo-textur fran threejs.org. Senare ska
-    den ersattas med en riktig produktbild.)
+  <p style="font-size:13px;color:#666;margin-top:14px">
+    Three.js laddas fran officiella CDN. Forenklad geometri
+    (BoxGeometry + CylinderGeometry) - en riktig butik laddar in en
+    .glb-fil med fotorealistisk modell istallet.
   </p>
 </main>
 

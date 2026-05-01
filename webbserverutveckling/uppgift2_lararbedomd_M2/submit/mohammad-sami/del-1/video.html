@@ -27,18 +27,21 @@
 
 <main>
   <h1>Sida 3 - Reklamfilm</h1>
-  <p>En kort reklamfilm med <code>controls</code> sa anvandaren kan spela,
-  pausa och dra i tidslinjen. Pa riktiga produktsidan kommer vi visa en
-  liknande video for varje jacka.</p>
+  <p>Vara riktiga reklamfilm fran Samis Jackets-appen. Den anvands i
+  startsidan pa mobilappen och visar varens-kollektionen. Filen ligger
+  lokalt i <code>assets/samis-jackets-fashion.mp4</code> sa sidan funkar
+  aven utan internet.</p>
 
-  <video controls width="640" style="max-width:100%; border-radius:8px;">
-    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+  <video controls width="720" poster="assets/logo.png"
+         style="max-width:100%; border-radius:10px; border:1px solid #e6e6e6;">
+    <source src="assets/samis-jackets-fashion.mp4" type="video/mp4">
     Din webblasare stodjer inte video-taggen.
   </video>
 
-  <p style="margin-top:12px;font-size:14px;color:#888">
-    (Demo-klipp fran W3Schools eftersom jag inte filmat egen reklam an.)
-  </p>
+  <p style="margin-top:14px">Anvandaren kan spela, pausa och dra i
+  tidslinjen tack vare attributet <code>controls</code>. <code>poster</code>
+  visar logotypen innan filmen startar - sa kunden ser markesidentiteten
+  forst.</p>
 </main>
 
 <footer>Mohammad Sami Alsharef &middot; Samis Jackets &middot; Webbutveckling 2</footer>
