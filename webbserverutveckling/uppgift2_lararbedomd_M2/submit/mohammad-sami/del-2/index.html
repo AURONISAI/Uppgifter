@@ -1,59 +1,48 @@
 <!DOCTYPE html>
-<!-- FIX: lade till lang="sv" sa skarmlasare och webblasare vet att sidan ar pa svenska -->
+<!-- FIX: la till doctype, lang, charset, viewport -->
 <html lang="sv">
 <head>
-  <!-- FIX: charset och viewport saknades helt i originalet -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- FIX: bytte fran "Felaktig Webbsida" till en beskrivande titel -->
-  <title>Samis Jackets - Demo (fixad version)</title>
-
-  <link rel="stylesheet" href="style.css">
-  <!-- FIX: la till defer sa scriptet inte blockar laddningen -->
-  <script src="script.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- FIX: bytte titel fran "Felaktig Webbsida" -->
+<title>Samis Jackets - fixad version</title>
+<link rel="stylesheet" href="style.css">
+<!-- FIX: defer sa scriptet inte blockar -->
+<script src="script.js" defer></script>
 </head>
 <body>
 
 <header>
   <h1>Samis Jackets</h1>
-  <p>Detta ar Del 2 - den FIXADE versionen av lararens trasiga sida.
-  Originalet hade ca 14 buggar (se <code>../felanalys.md</code>).
-  Jag har bytt ut det generiska "min sida"-innehallet mot en mini-demo
-  av butiken sa det halls ihop med Del 1.</p>
+  <p>Del 2 - rattad version. Buggar listas i felanalys.md.</p>
 </header>
 
-<!-- FIX: lankarna i originalet hade vag text ("Klicka har") och pekade pa #.
-     Nu hoppar de till sektioner pa samma sida sa allt funkar utan extra filer. -->
+<!-- FIX: lankarna hade vag text "klicka har" och pekade pa #. Bytte till tydliga -->
 <nav>
   <a href="#produkt">Produkten</a>
   <a href="#om">Om butiken</a>
-  <a href="#kontakt">Hor av dig</a>
+  <a href="#kontakt">Kontakt</a>
 </nav>
 
-<!-- FIX: img saknade alt-text och bilden hav.webp fanns inte. Bytt till en bild som finns + beskrivande alt -->
+<!-- FIX: bilden hade ingen alt och hav.webp fanns inte -->
 <section id="produkt" class="produkt">
   <h2>Inci Coat - Svart</h2>
-  <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=900&q=70"
-       alt="Svart vinterjacka med pals-krage hangande pa en stallning">
-  <p>En av vara mest salda vinterjackor. Vattentat ytterskikt och
-  varm fodring. Finns i storlek S-XXL.</p>
+  <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=900&q=70" alt="svart vinterjacka med pals krage">
+  <p>En av vara mest salda vinterjackor.</p>
   <span class="pris">2 499 kr</span>
 </section>
 
 <section id="om">
   <h2>Om butiken</h2>
-  <p>Samis Jackets ar en familjeagd butik som sedan 2010 saljer kvalitetsjackor
-  och accessoarer. Vi har bade fysisk butik och en mobilapp dar du kan handla,
-  se VIP-erbjudanden och delta i live-streams.</p>
+  <p>Samis Jackets ar en familjeagd butik som sedan 2010 saljer
+  jackor och accessoarer.</p>
 </section>
 
-<!-- FIX: formularet i originalet saknade label, name, type och method.
-     Nu kopplad label via for/id, method="post", och alla falt har name. -->
+<!-- FIX: formularet saknade label och method -->
 <section id="kontakt">
-  <h2>Hor av dig</h2>
+  <h2>Kontakt</h2>
   <form action="#" method="post">
-    <label for="namn">Ditt namn</label>
+    <label for="namn">Namn</label>
     <input type="text" id="namn" name="namn" required>
 
     <label for="meddelande">Meddelande</label>
@@ -63,7 +52,7 @@
   </form>
 </section>
 
-<footer>Mohammad Sami Alsharef &middot; Del 2 fixad version &middot; Webbutveckling 2</footer>
+<footer>Mohammad Sami &middot; Del 2 fixad</footer>
 
 </body>
 </html>

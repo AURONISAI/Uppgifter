@@ -1,13 +1,13 @@
-// FIX: gav funktionen ett battre namn an "test"
-function visaTal() {
-  // FIX: bytte var till const eftersom variabeln aldrig andras
-  // FIX: la till semikolon i slutet av raderna (god vana, undviker fel)
+// script.js - del 2 (fixad)
+
+// FIX: dopte om "test" till nat begripligt
+function visaTal(){
+  // FIX: var -> const, lade till semikolon
   const x = 10;
   console.log(x);
-} // FIX: hela funktionen saknade en stangande } i originalet - det gav syntax error och inget script korde alls
+}  // FIX: stangande } saknades i originalet -> SyntaxError
 
-// FIX: funktionen anropades aldrig i originalet, sa inget hande.
-// Nu kor jag den nar sidan ar laddad.
-window.addEventListener("DOMContentLoaded", function() {
+// FIX: funktionen kallades aldrig, gor det nu
+window.addEventListener("DOMContentLoaded", function(){
   visaTal();
 });
