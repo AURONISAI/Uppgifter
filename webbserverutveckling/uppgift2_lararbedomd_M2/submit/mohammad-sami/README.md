@@ -15,9 +15,11 @@ runt vart foretag, inte slumpmassiga skoluppgifter.
     Butik (background-image), Catwalk (background-video).
   - Bonus 1: tema-knapp (ljust standard / morkt) som sparar val i localStorage.
   - Bonus 2: animerad CSS-bakgrund pa start-sidan.
-- `del-2/` - bugg-uppgiften.
-  - `original/` - filerna fran lararens GitHub (orord).
-  - `fixed/` - mina ratteade versioner med kommentarer pa svenska.
+- `del-2/` - bugg-uppgiften. Bara den rattade versionen ligger har
+  (originalet finns pa lararens GitHub). Andringarna ar markerade
+  med `<!-- FIX: ... -->`, `/* FIX: ... */` och `// FIX: ...` direkt
+  i koden enligt instruktionerna.
+  - `index.html`, `style.css`, `script.js` - rattad kod med kommentarer.
   - `felanalys.md` - lista pa alla bugar med pavorkan och losning.
   - `reflektion.md` - vad jag larde mig.
 
@@ -29,6 +31,7 @@ i mappen `del-1/assets/`.
 
 ## Hur man kor del-2
 
-- Oppna `del-2/original/index.html` for att se den trasiga sidan.
-- Oppna `del-2/fixed/index.html` for att se min fixade version.
+- Oppna `del-2/index.html` for att se min rattade version.
 - Las `del-2/felanalys.md` for vad som var fel och varfor.
+- Originalet (det trasiga) finns pa lararens repo:
+  github.com/paul-pauliskolan/webbutveckling2/tree/master/M2-larabedomd-uppg/del-2
