@@ -2,7 +2,8 @@
 // koden ar ihopplockad fran exempel pa threejs.org sin docs
 
 var scene = new THREE.Scene();
-scene.background = new THREE.Color(0xeeeeee);
+// ljus bakgrund - matchar appen
+scene.background = new THREE.Color(0xf9f9f9);
 
 var camera = new THREE.PerspectiveCamera(70, window.innerWidth / 400, 0.1, 1000);
 camera.position.z = 3;

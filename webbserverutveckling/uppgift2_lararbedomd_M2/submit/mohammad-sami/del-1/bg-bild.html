@@ -26,14 +26,16 @@
 </nav>
 
 <main>
-  <h1 class="vit-text">Sida 5 - Butiks-bakgrund</h1>
-  <p class="vit-text">Hela sidans bakgrund ar en bild fran butiken,
+  <h1>Sida 5 - Butiks-bakgrund</h1>
+  <p>Hela sidans bakgrund ar en bild fran butiken,
   satt med <code>background-image</code> i <code>style.css</code>
-  (klassen <code>.bg-bild</code> pa body).</p>
+  (klassen <code>.bg-bild</code> pa body). Bilden ligger
+  <code>fixed</code> sa den inte scrollar med innehallet.</p>
 
-  <p class="vit-text">Texten ar vit med en svart text-shadow sa den syns
-  aven dar bakgrundsbilden ar ljus. Bilden ligger ocksa fixed sa den
-  inte scrollar med innehallet.</p>
+  <p>Sjalva text-kortet ar vitt med 92% opacitet ovanpa bilden, plus en
+  liten <code>backdrop-filter: blur(2px)</code> sa texten alltid blir
+  lasbar oavsett vad som finns under. Det ar precis sa appens
+  produktinfo-modal funkar over jacka-bilderna.</p>
 </main>
 
 <footer>Mohammad Sami Alsharef &middot; Samis Jackets &middot; Webbutveckling 2</footer>

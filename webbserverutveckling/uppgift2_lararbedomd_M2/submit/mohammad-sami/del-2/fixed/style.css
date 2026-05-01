@@ -1,34 +1,178 @@
-/* FIX: lightgray text pa #eee gick inte att lasa (for lag kontrast).
-   Bytte till morkare text-farg sa det blir lattare for ogonen. */
+/* FIXAD CSS - Mohammad Sami Alsharef
+   Buggar i originalet:
+   - lightgray text pa #eee bakgrund (kontrast nasten 1:1, helt olasligt)
+   - 9px font-size (alldeles for litet)
+   - lightblue lankar pa ljus bakgrund (lag kontrast)
+   - inga responsiva breakpoints
+
+   Brand-uppdatering: lat ven samtidigt fixad-versionen folja Samis Jackets
+   stilen (sage #c3cca6 + svart serif-rubrik) sa det halls ihop med Del 1.
+*/
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  background-color: #eee;
-  color: #222;
-  /* FIX: 9px ar alldeles for litet. 16px ar standard och mer lasbart. */
+  /* FIX: lightgray pa #eee gick inte att lasa - bytte till svart pa vitt */
+  background-color: #ffffff;
+  color: #000000;
+  /* FIX: 9px ar for litet, 16px ar lasbart */
   font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  margin: 20px;
+  padding: 24px;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
-/* FIX: lightblue pa #eee syntes knappt. Bytte till morkare bla. */
+/* serif-rubrik enligt brand */
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 20px;
+  margin: 18px 0 10px 0;
+}
+
+p { margin-bottom: 12px; color: #333333; }
+
+/* FIX: lightblue pa ljus bakgrund syntes knappt -
+   bytte till olive-gron som ar appens hover-farg och ger bra kontrast. */
 a {
-  color: #1f3a5f;
+  color: #82a31a;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 a:hover {
   text-decoration: underline;
+  color: #000000;
 }
 
-/* FIX: la till lite enkel responsiv css sa bilder inte spranger ut */
+nav {
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 12px 0;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 18px;
+}
+
+nav a {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+}
+
+/* produkt-kort med hover-lift, samma teknik som Del 1 */
+.produkt {
+  background: #f9f9f9;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 18px;
+  margin: 18px 0;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.produkt:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+.produkt h2 {
+  margin-top: 0;
+}
+
+.pris {
+  display: inline-block;
+  background: #c3cca6;
+  color: #000000;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* FIX: la till responsiv css - bilder ska inte sprangaa ut ur sin container */
 img {
   max-width: 100%;
   height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 14px 0;
+}
+
+/* formular-falt */
+form {
+  background: #f9f9f9;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  background: #ffffff;
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #82a31a;
+}
+
+button {
+  background: #c3cca6;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 100px;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+
+button:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+footer {
+  margin-top: 32px;
+  padding-top: 18px;
+  border-top: 1px solid #e6e6e6;
+  text-align: center;
+  font-size: 12px;
+  color: #666666;
+  letter-spacing: 0.5px;
 }
 
 /* FIX: media query for sma skarmar */
 @media (max-width: 600px) {
-  body {
-    font-size: 15px;
-    margin: 10px;
-  }
+  body { padding: 16px; }
+  h1 { font-size: 26px; }
+  nav { flex-wrap: wrap; gap: 10px; }
 }

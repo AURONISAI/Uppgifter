@@ -1,24 +1,32 @@
-/* Mohammad Sami Alsharef - M2 webbplatsen */
-/* samma dark/gold tema som GS appen sidan (uppgift 1) */
-/* hardkodade varden, inga var(--x) - blev for mycket sist */
+/* Mohammad Sami Alsharef - M2 Mediagalleri */
+/* Samis Jackets brand - tagit fargerna fran vara riktiga mobilappen */
+/* (Shopify Tinker tema - sage #c3cca6 + olive #82a31a + serif rubriker) */
+/* Hardkodade varden, inga var(--x). Desktop-forst. */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html, body { height: 100%; }
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #111;
-  color: #f0f0f0;
-  min-height: 100vh;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #ffffff;
+  color: #000000;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- meny ---------- */
+
+/* ===========================================================
+   TOPPMENY (header) - inspirerad av appens header-bar
+   =========================================================== */
 nav.meny {
-  background: #000;
-  border-bottom: 1px solid rgba(200,169,110,0.3);
-  padding: 10px 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #e6e6e6;
   position: sticky;
   top: 0;
   z-index: 100;
+  padding: 14px 24px;
 }
 
 nav.meny ul {
@@ -26,146 +34,304 @@ nav.meny ul {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px;
-}
-
-nav.meny a {
-  color: #888;
-  text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 4px;
-  font-size: 13px;
-  display: block;
-}
-
-nav.meny a:hover {
-  color: #c8a96e;
-}
-
-nav.meny a.aktiv {
-  color: #c8a96e;
-  border-bottom: 2px solid #c8a96e;
+  gap: 2px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .brand {
-  color: #c8a96e;
-  font-weight: bold;
-  font-size: 16px;
-  margin-right: 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #000000;
+  margin-right: 28px;
+  padding: 4px 0;
 }
 
+nav.meny a {
+  color: #000000;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-radius: 4px;
+  display: block;
+  transition: color 0.2s;
+}
+
+nav.meny a:hover {
+  color: #82a31a;
+}
+
+nav.meny a.aktiv {
+  color: #82a31a;
+  border-bottom: 2px solid #c3cca6;
+}
+
+/* tema-knapp i hogerkanten - pill-form precis som i appen */
 #tema-btn {
   margin-left: auto;
-  padding: 6px 14px;
-  border: 0;
-  border-radius: 999px;
-  cursor: pointer;
-  background: #8a6d2e;
-  color: #fff;
+  padding: 8px 18px;
+  border: 1px solid #000000;
+  border-radius: 100px;
+  background: #c3cca6;
+  color: #000000;
   font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
 }
 
-/* ---------- innehall ---------- */
+#tema-btn:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+
+/* ===========================================================
+   HUVUDINNEHALL - kort-layout
+   =========================================================== */
 main {
-  max-width: 880px;
-  margin: 30px auto;
-  padding: 22px;
-  background: #1a1a1a;
-  border: 1px solid rgba(200,169,110,0.2);
-  border-radius: 14px;
+  max-width: 960px;
+  margin: 32px auto;
+  padding: 32px;
+  background: #f9f9f9;
+  border: 1px solid #e6e6e6;
+  border-radius: 16px;
 }
 
-h1 { color: #c8a96e; margin-bottom: 14px; font-size: 1.6rem; }
-h2 { color: #c8a96e; margin-bottom: 10px; font-size: 1.1rem; }
-p  { margin-bottom: 12px; line-height: 1.5; color: #ddd; }
-code { color: #c8a96e; }
+main h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: -0.5px;
+  margin-bottom: 18px;
+  color: #000000;
+}
 
+main h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 22px;
+  margin: 24px 0 12px 0;
+  color: #000000;
+}
+
+main p {
+  margin-bottom: 14px;
+  color: #333333;
+  max-width: 70ch;
+}
+
+main code {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 13px;
+  color: #82a31a;
+}
+
+main strong {
+  color: #000000;
+}
+
+/* footer */
 footer {
   text-align: center;
-  padding: 16px;
-  color: #666;
+  padding: 24px 16px;
+  margin-top: 32px;
+  color: #666666;
   font-size: 12px;
-  border-top: 1px solid rgba(200,169,110,0.2);
+  border-top: 1px solid #e6e6e6;
+  letter-spacing: 0.5px;
 }
 
-/* ---------- bild sidan ---------- */
-.bild-box img {
+
+/* ===========================================================
+   PRODUKT-KORT (anvands av Jacka, Three.js, A-Frame sidan)
+   =========================================================== */
+.produkt-kort {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 18px;
+  margin: 16px 0;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.produkt-kort:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+.produkt-kort .pris {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  color: #82a31a;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.produkt-kort img {
   max-width: 100%;
   border-radius: 8px;
-  border: 1px solid rgba(200,169,110,0.3);
-}
-
-/* ---------- canvas ---------- */
-canvas#minCanvas {
-  border: 1px solid #c8a96e;
-  background: #000;
   display: block;
-  margin: 10px 0;
-  border-radius: 6px;
+  margin-bottom: 12px;
 }
 
-/* ---------- bakgrundsbild sida ---------- */
+
+/* ===========================================================
+   CANVAS-sidan (Logga)
+   =========================================================== */
+canvas#minCanvas {
+  border: 1px solid #e6e6e6;
+  background: #ffffff;
+  display: block;
+  margin: 16px 0;
+  border-radius: 8px;
+}
+
+
+/* ===========================================================
+   BAKGRUNDSBILD-sidan (Butik)
+   =========================================================== */
 body.bg-bild {
   background-image: url('https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=1600&q=70');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
+
 body.bg-bild main {
-  background: rgba(0,0,0,0.65);
-}
-body.bg-bild .vit-text {
-  color: #fff;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
-  font-size: 22px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(2px);
 }
 
-/* ---------- bakgrundsvideo sida ---------- */
+body.bg-bild .vit-text {
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  color: #000000;
+  padding: 20px 0;
+}
+
+
+/* ===========================================================
+   BAKGRUNDSVIDEO-sidan (Catwalk)
+   =========================================================== */
 .bg-video-wrapper {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
   overflow: hidden;
 }
+
 .bg-video-wrapper video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.55;
+  opacity: 0.7;
 }
 
-/* ---------- ljust tema (toggle) ---------- */
-body.light {
-  background: #f5f0e8;
-  color: #111;
+body.bg-video main {
+  background: rgba(255,255,255,0.9);
 }
-body.light main {
-  background: #fff;
-  color: #111;
-  border-color: rgba(184,145,58,0.3);
-}
-body.light p { color: #333; }
-body.light nav.meny {
-  background: #fff;
-  border-bottom: 1px solid rgba(184,145,58,0.3);
-}
-body.light nav.meny a { color: #555; }
-body.light footer { color: #888; }
 
-/* ---------- bonus animerad bakgrund (start) ---------- */
+
+/* ===========================================================
+   ANIMERAD BAKGRUND (bonus 2 - markesfargerna)
+   =========================================================== */
 .animerad-bg {
-  height: 160px;
-  margin-bottom: 18px;
-  border-radius: 10px;
-  background: linear-gradient(120deg, #c8a96e, #1a1a1a, #8a6d2e, #c8a96e);
+  height: 140px;
+  margin-bottom: 22px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #c3cca6, #ffffff, #82a31a, #c3cca6);
   background-size: 400% 400%;
-  animation: rorelse 12s ease infinite;
+  animation: rorelse 14s ease infinite;
 }
 
 @keyframes rorelse {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+
+/* ===========================================================
+   LJUST <-> MORKT TEMA (bonus 1)
+   morkt lage = exakt samma palette som appens dark mode
+   =========================================================== */
+body.morkt {
+  background: #121212;
+  color: #ffffff;
+}
+
+body.morkt nav.meny {
+  background: #121212;
+  border-bottom: 1px solid #333333;
+}
+body.morkt .brand,
+body.morkt nav.meny a {
+  color: #ffffff;
+}
+body.morkt nav.meny a:hover,
+body.morkt nav.meny a.aktiv {
+  color: #c3cca6;
+}
+body.morkt nav.meny a.aktiv {
+  border-bottom-color: #c3cca6;
+}
+
+body.morkt #tema-btn {
+  background: #c3cca6;
+  color: #000000;
+  border-color: #c3cca6;
+}
+
+body.morkt main {
+  background: #1e1e1e;
+  border-color: #333333;
+}
+body.morkt main h1,
+body.morkt main h2,
+body.morkt main strong {
+  color: #ffffff;
+}
+body.morkt main p { color: #cccccc; }
+body.morkt main code {
+  background: #121212;
+  border-color: #333333;
+  color: #c3cca6;
+}
+
+body.morkt .produkt-kort {
+  background: #1e1e1e;
+  border-color: #333333;
+}
+body.morkt canvas#minCanvas {
+  background: #121212;
+  border-color: #333333;
+}
+body.morkt footer {
+  color: #888888;
+  border-top-color: #333333;
+}
+
+
+/* ===========================================================
+   3D / VR sidor - lat ramen ge kontrast
+   =========================================================== */
+#three-box, a-scene {
+  display: block;
+  margin: 16px 0;
+  border-radius: 10px;
+  overflow: hidden;
 }

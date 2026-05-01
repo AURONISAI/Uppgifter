@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- FIX: bytte fran "Felaktig Webbsida" till en beskrivande titel -->
-  <title>Min startsida - exempel</title>
+  <title>Samis Jackets - Demo (fixad version)</title>
 
   <link rel="stylesheet" href="style.css">
   <!-- FIX: la till defer sa scriptet inte blockar laddningen -->
@@ -15,25 +15,41 @@
 </head>
 <body>
 
-<h1>Valkommen till min sida</h1>
+<h1>Samis Jackets</h1>
+<p>Detta ar den FIXADE versionen av lararens trasiga sida.
+Jag har bytt ut det generiska "min sida"-innehallet mot en mini-demo
+av butiken sa det halls ihop med Del 1.</p>
 
+<!-- FIX: lankarna hade vag text "Klicka har" och pekade pa #. Nu beskrivande lankar -->
 <nav>
-  <!-- FIX: lankarna hade vag text "Klicka har" och pekade pa #. Ersatte med tydliga lankar -->
   <a href="index.html">Hem</a>
-  <a href="om.html">Om mig</a>
+  <a href="om.html">Om butiken</a>
+  <a href="kontakt.html">Kontakt</a>
 </nav>
 
-<!-- FIX: img saknade alt-text och bilden hav.webp fanns inte. Bytte till en bild som finns och la till alt -->
-<img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&q=70"
-     alt="Vagor som rullar in mot en strand i solnedgang"
-     width="600">
+<!-- FIX: img saknade alt-text och bilden hav.webp fanns inte. Bytt till en bild som finns + alt -->
+<div class="produkt">
+  <h2>Inci Coat - Svart</h2>
+  <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=900&q=70"
+       alt="Svart vinterjacka med pals-krage hangande pa en stallning">
+  <p>En av vara mest salda vinterjackor. Vattentat ytterskikt och
+  varm fodring. Finns i storlek S-XXL.</p>
+  <span class="pris">2 499 kr</span>
+</div>
 
-<!-- FIX: formularet saknade label och method. Nu finns label kopplad med for/id, samt method="post" -->
+<!-- FIX: formularet saknade label och method. Nu kopplad label via for/id, method="post" -->
+<h2>Hor av dig</h2>
 <form action="#" method="post">
-  <label for="namn">Ditt namn:</label>
+  <label for="namn">Ditt namn</label>
   <input type="text" id="namn" name="namn" required>
+
+  <label for="meddelande">Meddelande</label>
+  <input type="text" id="meddelande" name="meddelande" required>
+
   <button type="submit">Skicka</button>
 </form>
+
+<footer>Mohammad Sami Alsharef &middot; Del 2 fixad version &middot; Webbutveckling 2</footer>
 
 </body>
 </html>
