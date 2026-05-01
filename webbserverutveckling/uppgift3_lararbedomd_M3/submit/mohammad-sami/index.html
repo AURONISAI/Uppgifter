@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- M3 - Tillganglig och interaktiv webbplats - Niva 3
+     Samis Jackets - bygger vidare pa M1+M2 -->
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samis Jackets - Mitt konto (M3)</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+  <h1>Samis Jackets</h1>
+  <p class="undertitel">Mitt konto - sparade onskningar &amp; modetips</p>
+  <!-- FIX: morkt-lage knapp - aria-pressed visar state for skarmlasare -->
+  <button id="tema-btn" type="button" aria-pressed="false" aria-label="Vaxla mellan ljust och morkt lage">Morkt</button>
+</header>
+
+<nav aria-label="Sektioner pa sidan">
+  <a href="#namn">Namn</a>
+  <a href="#rutor">Onskelista</a>
+  <a href="#fakta">Modetips</a>
+  <a href="#bild">Inspiration</a>
+</nav>
+
+<main>
+
+  <!-- Sektion 1: namn sparas i localStorage -->
+  <section id="namn" aria-labelledby="rubrik-namn">
+    <h2 id="rubrik-namn">1. Spara ditt namn</h2>
+    <p>Ditt namn sparas lokalt i webblasaren (localStorage) sa hellsningen
+    finns kvar nasta gang du oppnar sidan.</p>
+
+    <form id="namn-form">
+      <label for="namn-input">Ditt namn</label>
+      <input type="text" id="namn-input" name="namn" autocomplete="given-name" required>
+      <button type="submit">Spara</button>
+      <button type="button" id="rensa-namn">Rensa</button>
+    </form>
+
+    <!-- aria-live = skarmlasare laser nya hellsningen direkt -->
+    <p id="hellsning" aria-live="polite"></p>
+  </section>
+
+
+  <!-- Sektion 2: DOM - skapa rutor (onskelista) -->
+  <section id="rutor" aria-labelledby="rubrik-rutor">
+    <h2 id="rubrik-rutor">2. Onskelista</h2>
+    <p>Klicka for att lagga till en jacka i din onskelista.
+    Varje ruta far en slumpad markesfarg fran appen.</p>
+
+    <button id="skapa" aria-label="Lagg till ny jacka i onskelistan">+ Lagg till jacka</button>
+    <button id="rensa-rutor" aria-label="Tom onskelistan">Rensa allt</button>
+
+    <div id="rutor-yta" class="rutor-yta" aria-live="polite"></div>
+  </section>
+
+
+  <!-- Sektion 3: Fetch API -->
+  <section id="fakta" aria-labelledby="rubrik-fakta">
+    <h2 id="rubrik-fakta">3. Modetips for dagen</h2>
+    <p>Hamta ett slumpat tips fran ett oppet API. Anvander
+    <code>useless facts</code> som returnerar JSON och har CORS pa.</p>
+
+    <button id="hamta-fakta" aria-label="Hamta nytt modetips">Hamta tips</button>
+    <p id="fakta-text" role="status" aria-live="polite">(inget tips an - klicka pa knappen)</p>
+  </section>
+
+
+  <!-- Sektion 4: Inspirationsbild -->
+  <section id="bild" aria-labelledby="rubrik-bild">
+    <h2 id="rubrik-bild">4. Inspiration</h2>
+    <p>Slumpad inspirationsbild fran Picsum.</p>
+    <img src="https://picsum.photos/600/300?random=8"
+         alt="Slumpmassigt genererad inspirationsbild fran Picsum"
+         width="600" height="300">
+  </section>
+
+</main>
+
+<footer>
+  <p>Mohammad Sami Alsharef &middot; Samis Jackets &middot; Webbutveckling 2 - M3</p>
+</footer>
+
+</body>
+</html>

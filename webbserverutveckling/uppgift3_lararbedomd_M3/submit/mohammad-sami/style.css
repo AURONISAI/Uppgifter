@@ -1,0 +1,232 @@
+/* style.css - M3 Sami
+   Samis Jackets brand: vit, sage #c3cca6, oliv #82a31a */
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background:#fff;
+  color:#000;
+  font-size:16px;
+  line-height:1.5;
+  padding:24px;
+  max-width:820px;
+  margin:0 auto;
+}
+
+/* hog kontrast - svart pa vitt */
+
+header{
+  border-bottom:1px solid #e6e6e6;
+  padding-bottom:16px;
+  margin-bottom:18px;
+  position:relative;
+}
+
+h1{
+  font-family:Georgia, serif;
+  font-weight:normal;
+  font-size:32px;
+  letter-spacing:-.5px;
+}
+.undertitel{ color:#666; font-size:14px; margin-top:4px }
+
+h2{
+  font-family:Georgia, serif;
+  font-weight:normal;
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+p{ margin-bottom:12px; color:#333 }
+
+code{
+  background:#f9f9f9;
+  border:1px solid #e6e6e6;
+  border-radius:4px;
+  padding:2px 6px;
+  font-size:13px;
+  color:#82a31a;
+}
+
+
+/* tema-knapp ligger uppe i hornet */
+#tema-btn{
+  position:absolute;
+  right:0;
+  top:0;
+  background:#c3cca6;
+  color:#000;
+  border:1px solid #000;
+  border-radius:100px;
+  padding:8px 16px;
+  font-size:12px;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+#tema-btn:hover{ background:#000; color:#fff }
+
+
+nav{
+  border-bottom:1px solid #e6e6e6;
+  padding:10px 0;
+  margin-bottom:22px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+}
+nav a{
+  color:#82a31a;
+  text-decoration:none;
+  font-weight:600;
+  text-transform:uppercase;
+  font-size:13px;
+  letter-spacing:.6px;
+}
+nav a:hover{ color:#000; text-decoration:underline }
+
+
+section{
+  background:#f9f9f9;
+  border:1px solid #e6e6e6;
+  border-radius:10px;
+  padding:18px;
+  margin-bottom:18px;
+}
+
+
+/* formular */
+form{ margin:10px 0 }
+
+label{
+  display:block;
+  margin-bottom:6px;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+
+input[type="text"]{
+  width:100%;
+  max-width:320px;
+  padding:10px 12px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  background:#fff;
+  font-size:15px;
+  margin-bottom:10px;
+}
+
+button{
+  background:#c3cca6;
+  color:#000;
+  border:1px solid #000;
+  border-radius:100px;
+  padding:9px 20px;
+  font-size:13px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  cursor:pointer;
+  margin-right:6px;
+  margin-top:4px;
+}
+button:hover{ background:#000; color:#fff }
+
+/* FIX niva 3: ANPASSAD fokusmarkering - oranges streckad ram syns
+   tydligt nar man tab-bar pa sidan */
+button:focus,
+a:focus,
+input:focus{
+  outline: 3px dashed #ff7a00;
+  outline-offset: 3px;
+}
+
+
+/* onskelista - rutor */
+.rutor-yta{
+  margin-top:14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  min-height:60px;
+}
+
+.rutan{
+  width:120px;
+  height:80px;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Georgia,serif;
+  font-size:13px;
+  color:#000;
+  border:1px solid #000;
+  cursor:pointer;
+}
+
+
+#hellsning{
+  margin-top:8px;
+  font-family:Georgia,serif;
+  font-size:18px;
+  color:#000;
+}
+
+#fakta-text{
+  margin-top:8px;
+  font-style:italic;
+  color:#000;
+  background:#fff;
+  border:1px solid #e6e6e6;
+  border-radius:6px;
+  padding:10px 12px;
+}
+
+
+img{
+  max-width:100%;
+  height:auto;
+  border-radius:8px;
+  display:block;
+  margin-top:10px;
+  border:1px solid #e6e6e6;
+}
+
+
+footer{
+  margin-top:24px;
+  padding-top:16px;
+  border-top:1px solid #e6e6e6;
+  text-align:center;
+  font-size:12px;
+  color:#666;
+}
+
+
+/* mobilanpassning - under 600px */
+@media (max-width:600px){
+  body{ padding:14px }
+  h1{ font-size:24px }
+  #tema-btn{ position:static; margin-top:10px }
+  header{ text-align:left }
+  .rutan{ width:100px; height:70px }
+  nav{ gap:10px }
+  input[type="text"]{ max-width:100% }
+}
+
+
+/* morkt lage (bonus) */
+body.morkt{ background:#121212; color:#fff }
+body.morkt header,
+body.morkt nav,
+body.morkt section,
+body.morkt footer{ border-color:#333 }
+body.morkt section{ background:#1e1e1e }
+body.morkt p{ color:#ccc }
+body.morkt code{ background:#121212; border-color:#333; color:#c3cca6 }
+body.morkt input[type="text"]{ background:#121212; color:#fff; border-color:#444 }
+body.morkt nav a{ color:#c3cca6 }
+body.morkt #fakta-text{ background:#121212; border-color:#333; color:#fff }
+body.morkt footer{ color:#888 }
