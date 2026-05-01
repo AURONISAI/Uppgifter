@@ -1,32 +1,25 @@
-/* Mohammad Sami Alsharef - M2 Mediagalleri */
-/* Samis Jackets brand - tagit fargerna fran vara riktiga mobilappen */
-/* (Shopify Tinker tema - sage #c3cca6 + olive #82a31a + serif rubriker) */
-/* Hardkodade varden, inga var(--x). Desktop-forst. */
+/* style.css - M2 Mediagalleri
+   Mohammad Sami */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html, body { height: 100%; }
-
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background: #ffffff;
-  color: #000000;
-  font-size: 14px;
+  color: #111;
+  font-size: 15px;
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
 }
 
 
-/* ===========================================================
-   TOPPMENY (header) - inspirerad av appens header-bar
-   =========================================================== */
+/* topp menyn */
 nav.meny {
-  background: #ffffff;
+  background: #fff;
   border-bottom: 1px solid #e6e6e6;
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 14px 24px;
+  padding: 12px 20px;
 }
 
 nav.meny ul {
@@ -34,101 +27,83 @@ nav.meny ul {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 2px;
-  max-width: 1200px;
+  gap: 4px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .brand {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, serif;
   font-size: 22px;
-  font-weight: 400;
   letter-spacing: 1px;
-  color: #000000;
-  margin-right: 28px;
-  padding: 4px 0;
+  color: #000;
+  margin-right: 22px;
 }
 
 nav.meny a {
-  color: #000000;
+  color: #111;
   text-decoration: none;
   padding: 8px 12px;
   font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
   border-radius: 4px;
-  display: block;
-  transition: color 0.2s;
 }
 
-nav.meny a:hover {
-  color: #82a31a;
-}
+nav.meny a:hover { color: #82a31a; }
 
 nav.meny a.aktiv {
   color: #82a31a;
   border-bottom: 2px solid #c3cca6;
 }
 
-/* tema-knapp i hogerkanten - pill-form precis som i appen */
 #tema-btn {
   margin-left: auto;
-  padding: 8px 18px;
-  border: 1px solid #000000;
+  padding: 8px 16px;
+  border: 1px solid #000;
   border-radius: 100px;
   background: #c3cca6;
-  color: #000000;
+  color: #000;
   font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
   cursor: pointer;
-  transition: background 0.25s, color 0.25s;
 }
 
 #tema-btn:hover {
-  background: #000000;
-  color: #ffffff;
+  background: #000;
+  color: #fff;
 }
 
 
-/* ===========================================================
-   HUVUDINNEHALL - kort-layout
-   =========================================================== */
+/* huvudsektion */
 main {
-  max-width: 960px;
-  margin: 32px auto;
-  padding: 32px;
+  max-width: 920px;
+  margin: 28px auto;
+  padding: 28px;
   background: #f9f9f9;
   border: 1px solid #e6e6e6;
-  border-radius: 16px;
+  border-radius: 14px;
 }
 
 main h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  font-size: 32px;
-  letter-spacing: -0.5px;
-  margin-bottom: 18px;
-  color: #000000;
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: 30px;
+  margin-bottom: 16px;
 }
 
 main h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  font-size: 22px;
-  margin: 24px 0 12px 0;
-  color: #000000;
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: 20px;
+  margin: 18px 0 10px 0;
 }
 
 main p {
-  margin-bottom: 14px;
-  color: #333333;
-  max-width: 70ch;
+  margin-bottom: 12px;
+  color: #333;
 }
 
 main code {
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #e6e6e6;
   border-radius: 4px;
   padding: 2px 6px;
@@ -136,70 +111,58 @@ main code {
   color: #82a31a;
 }
 
-main strong {
-  color: #000000;
-}
-
-/* footer */
 footer {
   text-align: center;
-  padding: 24px 16px;
-  margin-top: 32px;
-  color: #666666;
+  padding: 22px 16px;
+  margin-top: 28px;
+  color: #666;
   font-size: 12px;
   border-top: 1px solid #e6e6e6;
-  letter-spacing: 0.5px;
 }
 
 
-/* ===========================================================
-   PRODUKT-KORT (anvands av Jacka, Three.js, A-Frame sidan)
-   =========================================================== */
+/* produkt kort */
 .produkt-kort {
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #e6e6e6;
   border-radius: 10px;
-  padding: 18px;
-  margin: 16px 0;
-  transition: transform 0.25s, box-shadow 0.25s;
+  padding: 16px;
+  margin: 14px 0;
 }
 
 .produkt-kort:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 .produkt-kort .pris {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 20px;
-  color: #82a31a;
-  margin-top: 8px;
   display: inline-block;
+  background: #c3cca6;
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 14px;
+  margin-top: 8px;
 }
 
 .produkt-kort img {
   max-width: 100%;
   border-radius: 8px;
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 
-/* ===========================================================
-   CANVAS-sidan (Logga)
-   =========================================================== */
+/* canvas sidan */
 canvas#minCanvas {
   border: 1px solid #e6e6e6;
-  background: #ffffff;
+  background: #fff;
   display: block;
-  margin: 16px 0;
+  margin: 14px 0;
   border-radius: 8px;
 }
 
 
-/* ===========================================================
-   BAKGRUNDSBILD-sidan (Butik)
-   =========================================================== */
+/* bakgrund med bild */
 body.bg-bild {
   background-image: url('https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=1600&q=70');
   background-size: cover;
@@ -209,21 +172,10 @@ body.bg-bild {
 
 body.bg-bild main {
   background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(2px);
-}
-
-body.bg-bild .vit-text {
-  text-align: center;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 26px;
-  color: #000000;
-  padding: 20px 0;
 }
 
 
-/* ===========================================================
-   BAKGRUNDSVIDEO-sidan (Catwalk)
-   =========================================================== */
+/* bakgrund med video */
 .bg-video-wrapper {
   position: fixed;
   top: 0;
@@ -246,12 +198,10 @@ body.bg-video main {
 }
 
 
-/* ===========================================================
-   ANIMERAD BAKGRUND (bonus 2 - markesfargerna)
-   =========================================================== */
+/* animerad bakgrund (bonus 2) */
 .animerad-bg {
-  height: 140px;
-  margin-bottom: 22px;
+  height: 130px;
+  margin-bottom: 20px;
   border-radius: 12px;
   background: linear-gradient(120deg, #c3cca6, #ffffff, #82a31a, #c3cca6);
   background-size: 400% 400%;
@@ -265,73 +215,41 @@ body.bg-video main {
 }
 
 
-/* ===========================================================
-   LJUST <-> MORKT TEMA (bonus 1)
-   morkt lage = exakt samma palette som appens dark mode
-   =========================================================== */
+/* morkt tema (bonus 1) */
 body.morkt {
   background: #121212;
-  color: #ffffff;
+  color: #fff;
 }
 
 body.morkt nav.meny {
   background: #121212;
-  border-bottom: 1px solid #333333;
+  border-bottom-color: #333;
 }
 body.morkt .brand,
-body.morkt nav.meny a {
-  color: #ffffff;
-}
+body.morkt nav.meny a { color: #fff; }
 body.morkt nav.meny a:hover,
-body.morkt nav.meny a.aktiv {
-  color: #c3cca6;
-}
-body.morkt nav.meny a.aktiv {
-  border-bottom-color: #c3cca6;
-}
-
-body.morkt #tema-btn {
-  background: #c3cca6;
-  color: #000000;
-  border-color: #c3cca6;
-}
+body.morkt nav.meny a.aktiv { color: #c3cca6; }
 
 body.morkt main {
   background: #1e1e1e;
-  border-color: #333333;
+  border-color: #333;
 }
-body.morkt main h1,
-body.morkt main h2,
-body.morkt main strong {
-  color: #ffffff;
-}
-body.morkt main p { color: #cccccc; }
+body.morkt main p { color: #ccc; }
 body.morkt main code {
   background: #121212;
-  border-color: #333333;
+  border-color: #333;
   color: #c3cca6;
 }
 
 body.morkt .produkt-kort {
   background: #1e1e1e;
-  border-color: #333333;
+  border-color: #333;
 }
 body.morkt canvas#minCanvas {
   background: #121212;
-  border-color: #333333;
+  border-color: #333;
 }
 body.morkt footer {
-  color: #888888;
-  border-top-color: #333333;
-}
-
-
-/* ===========================================================
-   3D / VR sidor - lat ramen ge kontrast
-   =========================================================== */
-#three-box, a-scene {
-  display: block;
-  margin: 16px 0;
-  border-radius: 10px;
-  overflow: hidden;
+  color: #888;
+  border-top-color: #333;
 }

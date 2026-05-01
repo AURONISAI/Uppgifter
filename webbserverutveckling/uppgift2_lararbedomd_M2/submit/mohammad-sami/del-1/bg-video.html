@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catwalk - G&amp;S Mediagalleri</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catwalk - Samis Jackets</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 </head>
 <body class="bg-video">
 
-<!-- video som ligger bakom hela sidan, autoplay + muted + loop -->
 <div class="bg-video-wrapper">
   <video autoplay muted loop playsinline>
     <source src="assets/samis-jackets-fashion.mp4" type="video/mp4">
@@ -21,30 +20,28 @@
     <li><span class="brand">G&amp;S</span></li>
     <li><a href="index.html">Start</a></li>
     <li><a href="bild.html">Jacka</a></li>
-    <li><a href="ljud.html">Jingle</a></li>
     <li><a href="video.html">Reklam</a></li>
     <li><a href="canvas.html">Logga</a></li>
     <li><a href="bg-bild.html">Butik</a></li>
     <li><a href="bg-video.html" class="aktiv">Catwalk</a></li>
-    <li><a href="three.html">3D-jacka</a></li>
-    <li><a href="aframe.html">VR-butik</a></li>
     <li><button id="tema-btn" type="button">Tema</button></li>
   </ul>
 </nav>
 
 <main>
-  <h1>Sida 6 - Catwalk-bakgrundsvideo</h1>
-  <p>Vara riktiga reklamfilm fran appen ligger som bakgrund pa hela sidan.
-  Den ligger i en wrapper-div med <code>position: fixed</code> och
-  <code>z-index: -1</code> sa den hamnar bakom resten av innehallet.
-  Tanken ar typ catwalk-loop pa startsidan i appen.</p>
+  <h1>Sida 5 - Catwalk bakgrund (video)</h1>
 
-  <p>Videon ar muted och har autoplay - de flesta webblasare kraver
-  muted for att autoplay ska tillatas, annars blockas det. Opaciteten
-  ar nersankt till 0.7 i CSS sa text-kortet syns tydligt ovanpa.</p>
+  <p>Har spelas vara modefilm i bakgrunden. Videon ligger i en fixed
+  div med <code>z-index: -1</code> sa den ligger bakom resten.
+  <code>autoplay muted loop</code> behovs for att webblasare ska tillata
+  automatisk uppspelning.</p>
+
+  <p>Opaciteten ar satt till 0.7 sa den inte tar overhanden. Om man inte
+  vill ha video i bakgrunden kan man ta bort klassen <code>bg-video</code>
+  pa body.</p>
 </main>
 
-<footer>Mohammad Sami Alsharef &middot; Samis Jackets &middot; Webbutveckling 2</footer>
+<footer>Mohammad Sami Alsharef &middot; Webbutveckling 2</footer>
 
 </body>
 </html>

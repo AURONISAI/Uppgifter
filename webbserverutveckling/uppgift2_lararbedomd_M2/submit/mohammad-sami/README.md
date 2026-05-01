@@ -2,17 +2,19 @@
 
 Mohammad Sami Alsharef
 
-Det har ar fortsattningen pa min serie kring **Samis Jackets** - samma brand
-som GS appen-sidan i uppgift 1. Samma dark/gold-tema, samma tema-knapp,
-samma stil. Tanken ar att alla kursuppgifter ska bli en sammanhangande
-portfolj kring vart foretag, inte slumpmassiga skoluppgifter.
+Fortsattning pa min serie kring **Samis Jackets** - samma brand som
+GS appen-sidan i uppgift 1. Samma stil, samma tema-knapp, samma fontval.
+Tanken ar att alla mina kursuppgifter ska hanga ihop som en portfolj
+runt vart foretag, inte slumpmassiga skoluppgifter.
 
 ## Mappstruktur
 
-- `del-1/` - egen webbplats med 8 sidor (jacka, jingle, reklam, logga, butik,
-  catwalk, 3D-jacka, VR-butik) + start-sida. Gemensam meny pa alla sidor.
-  - Bonus: tema-knapp (mork standard / ljust) som sparar val i localStorage.
-  - Bonus: animerad CSS-bakgrund pa start-sidan (gold/svart loop).
+- `del-1/` - egen webbplats med fem multimedia-sidor + start-sida.
+  Gemensam meny pa alla sidor.
+  - Sidor: Start, Jacka (img), Reklam (video), Logga (canvas),
+    Butik (background-image), Catwalk (background-video).
+  - Bonus 1: tema-knapp (ljust standard / morkt) som sparar val i localStorage.
+  - Bonus 2: animerad CSS-bakgrund pa start-sidan.
 - `del-2/` - bugg-uppgiften.
   - `original/` - filerna fran lararens GitHub (orord).
   - `fixed/` - mina ratteade versioner med kommentarer pa svenska.
@@ -21,9 +23,9 @@ portfolj kring vart foretag, inte slumpmassiga skoluppgifter.
 
 ## Hur man kor del-1
 
-Oppna `del-1/index.html` i en webblasare. Kraver internet eftersom bilder,
-ljud, video, three.js och a-frame laddas fran offentliga CDN/exempel-urls
-(W3Schools, Unsplash, threejs.org, aframe.io).
+Oppna `del-1/index.html` i en webblasare. Det funkar lokalt - bilderna
+pa Jacka och Butik kommer fran Unsplash men video och logga ligger
+i mappen `del-1/assets/`.
 
 ## Hur man kor del-2
 
