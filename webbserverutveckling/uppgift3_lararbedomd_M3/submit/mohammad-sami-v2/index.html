@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!-- M3 niva 3 - Samis Jackets - "Mitt konto" v2
+     Mohammad Sami Alsharef
+     Bygger pa samma design som M1 + M2 (G&S meny, riktig logga,
+     riktiga produktbilder fran Unsplash). -->
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mitt konto - Samis Jackets</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- samma meny-struktur som M2 -->
+<nav class="meny" aria-label="Huvudmeny">
+  <ul>
+    <li class="logga-li">
+      <img src="assets/logo.png" alt="Samis Jackets logotyp" class="logga">
+      <span class="brand">G&amp;S</span>
+    </li>
+    <li><a href="#namn">Namn</a>
+    <li><a href="#onske">Onskelista</a>
+    <li><a href="#vader">Vader</a>
+    <li><a href="#tips">Tips</a>
+    <li><a href="#farg">Tema-farg</a>
+    <li><button id="tema-btn" type="button" aria-pressed="false"
+        aria-label="Vaxla mellan ljust och morkt lage">Tema</button></li>
+  </ul>
+</nav>
+
+
+<!-- HERO med riktig produktbild + valkomst -->
+<header class="hero" aria-label="Valkomst">
+  <div class="hero-text">
+    <p class="liten-rubrik">Mitt konto - niva 3</p>
+    <h1>Hej, valkommen tillbaka.</h1>
+    <p class="undertitel">Spara din profil, bygg din onskelista och fa
+    jack-tips utifran Stockholms vader.</p>
+    <a href="#namn" class="cta">Borja har</a>
+  </div>
+  <figure class="hero-bild">
+    <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=900&q=70"
+         alt="Svart vinterjacka med pals krage fran Samis Jackets"
+         width="900" height="600">
+    <figcaption>Inci Coat - Vinterkollektion</figcaption>
+  </figure>
+</header>
+
+
+<!-- animerad rand som i M2 -->
+<div class="animerad-bg" aria-hidden="true"></div>
+
+
+<main>
+
+  <!-- 1. NAMN -->
+  <section id="namn" aria-labelledby="r-namn">
+    <h2 id="r-namn">1. Spara ditt namn</h2>
+    <p>Sparas i webblasarens localStorage sa hellsningen finns kvar
+    nasta gang du oppnar sidan.</p>
+
+    <form id="namn-form">
+      <label for="namn-input">Ditt namn</label>
+      <input type="text" id="namn-input" name="namn" autocomplete="given-name" required>
+      <div class="rad-knappar">
+        <button type="submit">Spara</button>
+        <button type="button" id="rensa-namn">Rensa</button>
+      </div>
+    </form>
+
+    <p id="hellsning" aria-live="polite" class="hellsning"></p>
+  </section>
+
+
+  <!-- 2. ONSKELISTA - riktiga produktkort -->
+  <section id="onske" aria-labelledby="r-onske">
+    <h2 id="r-onske">2. Min onskelista</h2>
+    <p>Bygg din onskelista. Klicka <strong>Lagg till</strong> for en
+    slumpad jacka ur kollektionen. Klick eller Enter pa ett kort tar
+    bort det. Allt sparas i localStorage.</p>
+
+    <div class="rad-knappar">
+      <button id="skapa" aria-label="Lagg till slumpad jacka">+ Lagg till jacka</button>
+      <button id="rensa-rutor" aria-label="Tom hela onskelistan">Rensa allt</button>
+      <span id="raknare" class="raknare" aria-live="polite">0 jackor</span>
+    </div>
+
+    <div id="rutor-yta" class="rutor-yta" role="list" aria-label="Onskelistans jackor"></div>
+  </section>
+
+
+  <!-- 3. VADER (Fetch nr 1) -->
+  <section id="vader" aria-labelledby="r-vader">
+    <h2 id="r-vader">3. Vad ska jag ha pa mig?</h2>
+    <p>Hamtar Stockholms vader via <code>open-meteo</code> (oppet API,
+    ingen login, CORS pa) och rekommenderar en jacka fran kollektionen.</p>
+
+    <button id="hamta-vader" aria-label="Hamta vader och jack-tips">Hamta vader-tips</button>
+    <div id="vader-yta" class="vader-yta" role="status" aria-live="polite">(klicka pa knappen for att hamta)</div>
+  </section>
+
+
+  <!-- 4. FAKTA (Fetch nr 2) -->
+  <section id="tips" aria-labelledby="r-tips">
+    <h2 id="r-tips">4. Dagens visste-du</h2>
+    <p>Kort fakta-tips fran <code>uselessfacts.jsph.pl</code>.</p>
+
+    <button id="hamta-fakta" aria-label="Hamta nytt visste-du">Hamta tips</button>
+    <p id="fakta-text" role="status" aria-live="polite" class="fakta-text">(inget tips an - klicka pa knappen)</p>
+  </section>
+
+
+  <!-- 5. ACCENT-FARG -->
+  <section id="farg" aria-labelledby="r-farg">
+    <h2 id="r-farg">5. Valj din accentfarg</h2>
+    <p>Andrar accentfargen pa hela sidan. Sparas i localStorage.</p>
+
+    <div class="rad-knappar">
+      <label for="farg-pick">Accentfarg</label>
+      <input type="color" id="farg-pick" value="#82a31a" aria-label="Valj accentfarg">
+      <button id="aterstall-farg" type="button">Aterstall (oliv)</button>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- toast notis -->
+<div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+
+
+<footer>
+  <p>Mohammad Sami Alsharef &middot; Samis Jackets &middot; Webbutveckling 2 - M3 (v2)</p>
+</footer>
+
+</body>
+</html>
