@@ -1,380 +1,278 @@
-// script.js - M3 v3 Katalog - Sami
-// Riktig produktkatalog med riktiga foton.
-// DOM + Fetch + LocalStorage + tema + accentfarg + toast + modal + filter/sort.
+// script.js - M3 v3
+// Sami
 
-// ============ PRODUKTDATA ============
-// Varje produkt har flera fargvarianter. Bilder finns i assets/produkter/
+// produkter
 var produkter = [
-  {
-    id: "8805",
-    namn: "Storm Puffer",
-    beskrivning: "Vadderad puffer-jacka i tva-fargs design. Vindtat ytterskikt och varm fyllning - perfekt for kalla dagar.",
-    pris: 2999,
-    varianter: [
-      { farg:"Beige",        kod:"beige",       hex:"#d8c8a8", bild:"assets/produkter/8805_beige.jpg" },
-      { farg:"Beige & Svart",kod:"beige_black", hex:"#3a3a3a", bild:"assets/produkter/8805_beige_black.jpg" },
-      { farg:"Svart",        kod:"black",       hex:"#111111", bild:"assets/produkter/8805_black.jpg" }
-    ]
-  },
-  {
-    id: "F0357",
-    namn: "Edda Long",
-    beskrivning: "Lang, klassisk skarcoat med mjuk insida. En tidlos modell som hojer varje outfit.",
-    pris: 3499,
-    varianter: [
-      { farg:"Svart",         kod:"black",       hex:"#111111", bild:"assets/produkter/F0357_black.jpg" },
-      { farg:"Brun",          kod:"brown",       hex:"#6b4423", bild:"assets/produkter/F0357_brown.jpg" },
-      { farg:"Brun & Svart",  kod:"brown_black", hex:"#3a2a18", bild:"assets/produkter/F0357_brown_black.jpg" }
-    ]
-  },
-  {
-    id: "F0445",
-    namn: "Inci Coat",
-    beskrivning: "Var bestseller. Vattentat och vindtat ytterskikt med varm foring. Finns i fem fargvarianter.",
-    pris: 2499,
-    varianter: [
-      { farg:"Beige",        kod:"beige",       hex:"#d8c8a8", bild:"assets/produkter/F0445_beige.jpg" },
-      { farg:"Beige & Brun", kod:"beige_brown", hex:"#a07a4a", bild:"assets/produkter/F0445_beige_brown.jpg" },
-      { farg:"Svart",        kod:"black",       hex:"#111111", bild:"assets/produkter/F0445_black.jpg" },
-      { farg:"Svart & Beige",kod:"black_beige", hex:"#3a3a3a", bild:"assets/produkter/F0445_black_beige.jpg" },
-      { farg:"Brun",         kod:"brown",       hex:"#6b4423", bild:"assets/produkter/F0445_brown.jpg" }
-    ]
-  },
-  {
-    id: "F0473",
-    namn: "Aurora Coat",
-    beskrivning: "Modern oversize-snitt med struktur-tyg. Lika snygg uppknappt som ihop-knappt.",
-    pris: 2799,
-    varianter: [
-      { farg:"Beige",         kod:"beige",       hex:"#d8c8a8", bild:"assets/produkter/F0473_beige.jpg" },
-      { farg:"Beige & Brun",  kod:"beige_brown", hex:"#a07a4a", bild:"assets/produkter/F0473_beige_brown.jpg" },
-      { farg:"Svart",         kod:"black",       hex:"#111111", bild:"assets/produkter/F0473_black.jpg" },
-      { farg:"Svart & Beige", kod:"black_beige", hex:"#3a3a3a", bild:"assets/produkter/F0473_black_beige.jpg" },
-      { farg:"Brun",          kod:"brown",       hex:"#6b4423", bild:"assets/produkter/F0473_brown.jpg" }
-    ]
-  },
-  {
-    id: "F0474",
-    namn: "Forest Bomber",
-    beskrivning: "Sportig bomberjacka i mjukt material. Lattare passform - perfekt for host och var.",
-    pris: 1899,
-    varianter: [
-      { farg:"Beige",         kod:"beige",       hex:"#d8c8a8", bild:"assets/produkter/F0474_beige.jpg" },
-      { farg:"Beige & Khaki", kod:"beige_khaki", hex:"#7a8458", bild:"assets/produkter/F0474_beige_khaki.jpg" },
-      { farg:"Khaki",         kod:"khaki",       hex:"#5a6438", bild:"assets/produkter/F0474_khaki.jpg" }
-    ]
-  },
-  {
-    id: "L01",
-    namn: "Nordic Light",
-    beskrivning: "Lattvikt-jacka for milda dagar. Andningsbar och vattenavvisande - lat att vika ihop.",
-    pris: 1599,
-    varianter: [
-      { farg:"Svart", kod:"black", hex:"#111111", bild:"assets/produkter/L01_black.jpg" },
-      { farg:"Gron",  kod:"green", hex:"#3e6b3a", bild:"assets/produkter/L01_green.jpg" }
-    ]
-  }
+  { id:"8805", namn:"Storm Puffer", pris:2999, beskr:"Vadderad puffer-jacka. Vindtat och varm.",
+    farger:[
+      { kod:"beige",       namn:"Beige",         hex:"#d8c8a8", bild:"assets/produkter/8805_beige.jpg" },
+      { kod:"beige_black", namn:"Beige & Svart", hex:"#3a3a3a", bild:"assets/produkter/8805_beige_black.jpg" },
+      { kod:"black",       namn:"Svart",         hex:"#111",    bild:"assets/produkter/8805_black.jpg" }
+    ]},
+  { id:"F0357", namn:"Edda Long", pris:3499, beskr:"Lang trenchcoat. Tidlos.",
+    farger:[
+      { kod:"black",       namn:"Svart",        hex:"#111",    bild:"assets/produkter/F0357_black.jpg" },
+      { kod:"brown",       namn:"Brun",         hex:"#6b4423", bild:"assets/produkter/F0357_brown.jpg" },
+      { kod:"brown_black", namn:"Brun & Svart", hex:"#3a2a18", bild:"assets/produkter/F0357_brown_black.jpg" }
+    ]},
+  { id:"F0445", namn:"Inci Coat", pris:2499, beskr:"Var bestseller. Vattentat och varm.",
+    farger:[
+      { kod:"beige",       namn:"Beige",         hex:"#d8c8a8", bild:"assets/produkter/F0445_beige.jpg" },
+      { kod:"beige_brown", namn:"Beige & Brun",  hex:"#a07a4a", bild:"assets/produkter/F0445_beige_brown.jpg" },
+      { kod:"black",       namn:"Svart",         hex:"#111",    bild:"assets/produkter/F0445_black.jpg" },
+      { kod:"black_beige", namn:"Svart & Beige", hex:"#3a3a3a", bild:"assets/produkter/F0445_black_beige.jpg" },
+      { kod:"brown",       namn:"Brun",          hex:"#6b4423", bild:"assets/produkter/F0445_brown.jpg" }
+    ]},
+  { id:"F0473", namn:"Aurora Coat", pris:2799, beskr:"Modern oversize.",
+    farger:[
+      { kod:"beige",       namn:"Beige",         hex:"#d8c8a8", bild:"assets/produkter/F0473_beige.jpg" },
+      { kod:"beige_brown", namn:"Beige & Brun",  hex:"#a07a4a", bild:"assets/produkter/F0473_beige_brown.jpg" },
+      { kod:"black",       namn:"Svart",         hex:"#111",    bild:"assets/produkter/F0473_black.jpg" },
+      { kod:"black_beige", namn:"Svart & Beige", hex:"#3a3a3a", bild:"assets/produkter/F0473_black_beige.jpg" },
+      { kod:"brown",       namn:"Brun",          hex:"#6b4423", bild:"assets/produkter/F0473_brown.jpg" }
+    ]},
+  { id:"F0474", namn:"Forest Bomber", pris:1899, beskr:"Bomberjacka for host.",
+    farger:[
+      { kod:"beige",       namn:"Beige",         hex:"#d8c8a8", bild:"assets/produkter/F0474_beige.jpg" },
+      { kod:"beige_khaki", namn:"Beige & Khaki", hex:"#7a8458", bild:"assets/produkter/F0474_beige_khaki.jpg" },
+      { kod:"khaki",       namn:"Khaki",         hex:"#5a6438", bild:"assets/produkter/F0474_khaki.jpg" }
+    ]},
+  { id:"L01", namn:"Nordic Light", pris:1599, beskr:"Lattvikt-jacka.",
+    farger:[
+      { kod:"black", namn:"Svart", hex:"#111",    bild:"assets/produkter/L01_black.jpg" },
+      { kod:"green", namn:"Gron",  hex:"#3e6b3a", bild:"assets/produkter/L01_green.jpg" }
+    ]}
 ];
 
 
-// ============ TOAST ============
-var toast = document.getElementById("toast");
-var toastTimer;
+// toast
 function notis(text){
-  if(!toast){ return }
-  toast.textContent = text;
-  toast.classList.add("visa");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(function(){ toast.classList.remove("visa") }, 2400);
+  var t = document.getElementById("toast");
+  t.textContent = text;
+  t.classList.add("visa");
+  setTimeout(function(){ t.classList.remove("visa") }, 2200);
 }
 
 
-// ============ TEMA ============
+// tema
 var temaBtn = document.getElementById("tema-btn");
-var morkt = false;
 if(localStorage.getItem("tema") == "morkt"){
   document.body.classList.add("morkt");
-  morkt = true;
+  temaBtn.setAttribute("aria-pressed","true");
 }
-if(temaBtn){
-  if(morkt){ temaBtn.setAttribute("aria-pressed","true") }
-  temaBtn.addEventListener("click", function(){
-    morkt = !morkt;
-    if(morkt){
-      document.body.classList.add("morkt");
-      temaBtn.setAttribute("aria-pressed","true");
-      localStorage.setItem("tema","morkt");
-    } else {
-      document.body.classList.remove("morkt");
-      temaBtn.setAttribute("aria-pressed","false");
-      localStorage.setItem("tema","ljust");
-    }
-  });
-}
+temaBtn.onclick = function(){
+  document.body.classList.toggle("morkt");
+  var morkt = document.body.classList.contains("morkt");
+  temaBtn.setAttribute("aria-pressed", morkt ? "true" : "false");
+  localStorage.setItem("tema", morkt ? "morkt" : "ljust");
+};
 
 
-// ============ ACCENT-FARG ============
+// accent farg
 var fargPick = document.getElementById("farg-pick");
-var aterstall = document.getElementById("aterstall-farg");
-
 function satFarg(hex){
   document.documentElement.style.setProperty("--accent", hex);
-  document.documentElement.style.setProperty("--accent-mjuk", hex + "55");
+  document.documentElement.style.setProperty("--mjuk", hex + "55");
 }
-var sparadFarg = localStorage.getItem("accent");
-if(sparadFarg){ satFarg(sparadFarg); if(fargPick){ fargPick.value = sparadFarg } }
-
-if(fargPick){
-  fargPick.addEventListener("input", function(){
-    satFarg(fargPick.value);
-    localStorage.setItem("accent", fargPick.value);
-  });
+if(localStorage.getItem("accent")){
+  fargPick.value = localStorage.getItem("accent");
+  satFarg(fargPick.value);
 }
-if(aterstall){
-  aterstall.addEventListener("click", function(){
-    document.documentElement.style.removeProperty("--accent");
-    document.documentElement.style.removeProperty("--accent-mjuk");
-    if(fargPick){ fargPick.value = "#82a31a" }
-    localStorage.removeItem("accent");
-    notis("Accentfarg aterstalld");
-  });
-}
+fargPick.oninput = function(){
+  satFarg(fargPick.value);
+  localStorage.setItem("accent", fargPick.value);
+};
+document.getElementById("aterstall-farg").onclick = function(){
+  document.documentElement.style.removeProperty("--accent");
+  document.documentElement.style.removeProperty("--mjuk");
+  fargPick.value = "#82a31a";
+  localStorage.removeItem("accent");
+  notis("Aterstalld");
+};
 
 
-// ============ KATALOG (filter + sort + render) ============
+// katalog
 var katalogYta = document.getElementById("katalog-yta");
 var filterFarg = document.getElementById("filter-farg");
-var sortera   = document.getElementById("sortera");
-var antalInfo = document.getElementById("antal-info");
+var sortera    = document.getElementById("sortera");
+var antalInfo  = document.getElementById("antal-info");
 
 function ritaKatalog(){
-  var fargVal = filterFarg.value;
-  var sortVal = sortera.value;
-
-  // klona och filtrera
   var lista = produkter.slice();
-  if(fargVal != "alla"){
+
+  // filter
+  if(filterFarg.value != "alla"){
     lista = lista.filter(function(p){
-      // produkten visas om nagon variant matchar fargen
-      for(var i=0; i<p.varianter.length; i++){
-        if(p.varianter[i].kod.indexOf(fargVal) > -1){ return true }
+      for(var i=0; i<p.farger.length; i++){
+        if(p.farger[i].kod.indexOf(filterFarg.value) > -1) return true;
       }
       return false;
     });
   }
 
-  // sortera
-  if(sortVal == "pris-upp"){ lista.sort(function(a,b){ return a.pris - b.pris }) }
-  if(sortVal == "pris-ner"){ lista.sort(function(a,b){ return b.pris - a.pris }) }
-  if(sortVal == "namn"){     lista.sort(function(a,b){ return a.namn.localeCompare(b.namn) }) }
+  // sort
+  if(sortera.value == "pris-upp") lista.sort(function(a,b){ return a.pris - b.pris });
+  if(sortera.value == "pris-ner") lista.sort(function(a,b){ return b.pris - a.pris });
+  if(sortera.value == "namn")     lista.sort(function(a,b){ return a.namn.localeCompare(b.namn) });
 
   katalogYta.innerHTML = "";
   for(var i=0; i<lista.length; i++){
-    katalogYta.appendChild(byggProduktKort(lista[i], fargVal));
+    katalogYta.appendChild(byggKort(lista[i]));
   }
-
-  antalInfo.textContent = lista.length + " av " + produkter.length + " modeller";
+  antalInfo.textContent = lista.length + " av " + produkter.length;
 }
 
-function byggProduktKort(p, fargVal){
-  // valj forsta variant som matchar filter (eller forsta annars)
-  var huvudVariant = p.varianter[0];
-  if(fargVal && fargVal != "alla"){
-    for(var i=0; i<p.varianter.length; i++){
-      if(p.varianter[i].kod.indexOf(fargVal) > -1){ huvudVariant = p.varianter[i]; break }
-    }
+function byggKort(p){
+  var v = p.farger[0];
+  var cirklar = "";
+  for(var i=0; i<p.farger.length; i++){
+    cirklar += '<span class="cirkel" style="background:' + p.farger[i].hex + '" title="' + p.farger[i].namn + '"></span>';
   }
-
   var div = document.createElement("div");
-  div.className = "produkt-kort";
+  div.className = "kort";
   div.setAttribute("role","listitem");
   div.setAttribute("tabindex","0");
-  div.setAttribute("aria-label", p.namn + ", fran " + p.pris + " kr, " + p.varianter.length + " fargvarianter, klicka for detaljer");
-
-  var fargCirklar = "";
-  for(var j=0; j<p.varianter.length; j++){
-    fargCirklar += '<span class="cirkel" style="background:' + p.varianter[j].hex + '" title="' + p.varianter[j].farg + '"></span>';
-  }
-
+  div.setAttribute("aria-label", p.namn + " " + p.pris + " kr");
   div.innerHTML =
-    '<div class="bild-yta">' +
-      '<span class="markning">' + p.varianter.length + ' farger</span>' +
-      '<img src="' + huvudVariant.bild + '" alt="' + p.namn + ' i farg ' + huvudVariant.farg + '" loading="lazy">' +
-    '</div>' +
+    '<div class="bild"><img src="' + v.bild + '" alt="' + p.namn + '" loading="lazy"></div>' +
     '<div class="info">' +
       '<span class="titel">' + p.namn + '</span>' +
       '<span class="sku">art. ' + p.id + '</span>' +
-      '<div class="farg-cirklar">' + fargCirklar + '</div>' +
       '<span class="pris">' + p.pris + ' kr</span>' +
+      '<div class="farger">' + cirklar + '</div>' +
     '</div>';
-
-  div.addEventListener("click", function(){ oppnaModal(p, huvudVariant) });
-  div.addEventListener("keydown", function(e){
-    if(e.key == "Enter" || e.key == " "){ e.preventDefault(); oppnaModal(p, huvudVariant) }
-  });
-
+  div.onclick = function(){ oppnaModal(p) };
+  div.onkeydown = function(e){
+    if(e.key == "Enter" || e.key == " "){ e.preventDefault(); oppnaModal(p) }
+  };
   return div;
 }
 
-filterFarg.addEventListener("change", ritaKatalog);
-sortera.addEventListener("change", ritaKatalog);
+filterFarg.onchange = ritaKatalog;
+sortera.onchange    = ritaKatalog;
 ritaKatalog();
 
 
-// ============ PRODUKTMODAL ============
-var modal = document.getElementById("modal");
-var modalBild = document.getElementById("modal-bild");
-var modalNamn = document.getElementById("modal-namn");
-var modalBeskr = document.getElementById("modal-beskrivning");
-var modalPris = document.getElementById("modal-pris");
-var modalFargvalj = document.getElementById("modal-fargvalj");
-var modalLaggTill = document.getElementById("modal-lagg-till");
-var modalStang = document.getElementById("modal-stang");
-
-var aktivProdukt = null;
+// modal
+var modal       = document.getElementById("modal");
+var modalBild   = document.getElementById("modal-bild");
+var modalNamn   = document.getElementById("modal-namn");
+var modalBeskr  = document.getElementById("modal-beskrivning");
+var modalPris   = document.getElementById("modal-pris");
+var modalFarger = document.getElementById("modal-fargvalj");
+var aktiv = null;
 var aktivVariant = null;
 
-function oppnaModal(p, startVariant){
-  aktivProdukt = p;
-  aktivVariant = startVariant || p.varianter[0];
+function oppnaModal(p){
+  aktiv = p;
+  aktivVariant = p.farger[0];
+  uppdateraModal();
 
-  modalNamn.textContent = p.namn + " - " + aktivVariant.farg;
-  modalBeskr.textContent = p.beskrivning;
-  modalPris.textContent = p.pris + " kr";
-  modalBild.src = aktivVariant.bild;
-  modalBild.alt = p.namn + " i farg " + aktivVariant.farg;
-
-  // bygg fargknappar
-  modalFargvalj.innerHTML = "";
-  for(var i=0; i<p.varianter.length; i++){
+  modalFarger.innerHTML = "";
+  for(var i=0; i<p.farger.length; i++){
     (function(v){
       var b = document.createElement("button");
-      b.className = "farg-knapp" + (v.kod == aktivVariant.kod ? " vald" : "");
+      b.className = "farg-knapp" + (v == aktivVariant ? " vald" : "");
       b.style.background = v.hex;
+      b.title = v.namn;
       b.setAttribute("type","button");
       b.setAttribute("role","radio");
-      b.setAttribute("aria-checked", v.kod == aktivVariant.kod ? "true" : "false");
-      b.setAttribute("aria-label", v.farg);
-      b.title = v.farg;
-      b.addEventListener("click", function(){ valjVariant(v) });
-      modalFargvalj.appendChild(b);
-    })(p.varianter[i]);
+      b.setAttribute("aria-label", v.namn);
+      b.onclick = function(){
+        aktivVariant = v;
+        var alla = modalFarger.querySelectorAll(".farg-knapp");
+        for(var j=0; j<alla.length; j++) alla[j].classList.remove("vald");
+        b.classList.add("vald");
+        uppdateraModal();
+      };
+      modalFarger.appendChild(b);
+    })(p.farger[i]);
   }
 
   modal.classList.add("oppen");
   modal.setAttribute("aria-hidden","false");
-  document.body.style.overflow = "hidden";
-  modalStang.focus();
 }
 
-function valjVariant(v){
-  aktivVariant = v;
-  modalBild.src = v.bild;
-  modalBild.alt = aktivProdukt.namn + " i farg " + v.farg;
-  modalNamn.textContent = aktivProdukt.namn + " - " + v.farg;
-  // uppdatera knappar
-  var alla = modalFargvalj.querySelectorAll(".farg-knapp");
-  for(var i=0; i<alla.length; i++){
-    alla[i].classList.remove("vald");
-    alla[i].setAttribute("aria-checked","false");
-  }
-  // markera ratt knapp
-  var index = aktivProdukt.varianter.indexOf(v);
-  if(index >= 0){
-    alla[index].classList.add("vald");
-    alla[index].setAttribute("aria-checked","true");
-  }
+function uppdateraModal(){
+  modalBild.src = aktivVariant.bild;
+  modalBild.alt = aktiv.namn + " " + aktivVariant.namn;
+  modalNamn.textContent = aktiv.namn + " - " + aktivVariant.namn;
+  modalBeskr.textContent = aktiv.beskr;
+  modalPris.textContent = aktiv.pris + " kr";
 }
 
 function stangModal(){
   modal.classList.remove("oppen");
   modal.setAttribute("aria-hidden","true");
-  document.body.style.overflow = "";
 }
 
-modalStang.addEventListener("click", stangModal);
-modal.addEventListener("click", function(e){
-  if(e.target == modal){ stangModal() }
-});
-document.addEventListener("keydown", function(e){
-  if(e.key == "Escape" && modal.classList.contains("oppen")){ stangModal() }
-});
+document.getElementById("modal-stang").onclick = stangModal;
+modal.onclick = function(e){ if(e.target == modal) stangModal() };
+document.onkeydown = function(e){
+  if(e.key == "Escape" && modal.classList.contains("oppen")) stangModal();
+};
 
-modalLaggTill.addEventListener("click", function(){
-  if(!aktivProdukt || !aktivVariant){ return }
-  laggTillIOnskelista(aktivProdukt, aktivVariant);
+document.getElementById("modal-lagg-till").onclick = function(){
+  if(!aktiv) return;
+  laggTill(aktiv, aktivVariant);
   stangModal();
-});
+};
 
 
-// ============ ONSKELISTA ============
+// onskelista
 var onskeYta = document.getElementById("onske-yta");
-var rensaRutorBtn = document.getElementById("rensa-rutor");
-var raknare = document.getElementById("raknare");
-var varukorgInfo = document.getElementById("varukorg-info");
+var raknare  = document.getElementById("raknare");
+var varukorg = document.getElementById("varukorg-info");
 
 function uppdateraRaknare(){
-  // bortse fran tom-text om den finns
   var n = onskeYta.querySelectorAll(".onske-kort").length;
   raknare.textContent = n + " jackor";
-  varukorgInfo.textContent = n + " i onskelistan";
-  // tom-text
-  if(n == 0){
-    if(!onskeYta.querySelector(".tom-text")){
-      var p = document.createElement("p");
-      p.className = "tom-text";
-      p.textContent = "Din onskelista ar tom. Lagg till en jacka fran katalogen ovan.";
-      onskeYta.appendChild(p);
-    }
-  } else {
+  varukorg.textContent = n + " i listan";
+  if(n == 0 && !onskeYta.querySelector(".tom-text")){
+    var p = document.createElement("p");
+    p.className = "tom-text";
+    p.textContent = "Tom. Lagg till en jacka fran katalogen.";
+    onskeYta.appendChild(p);
+  }
+  if(n > 0){
     var t = onskeYta.querySelector(".tom-text");
-    if(t){ t.remove() }
+    if(t) t.remove();
   }
 }
 
-function laggTillIOnskelista(p, v){
-  // skapa kort
+function laggTill(p, v){
+  var t = onskeYta.querySelector(".tom-text");
+  if(t) t.remove();
+
   var k = document.createElement("div");
   k.className = "onske-kort";
-  k.setAttribute("role","listitem");
   k.setAttribute("tabindex","0");
-  k.setAttribute("aria-label", p.namn + " " + v.farg + " - " + p.pris + " kr - tryck Enter for att ta bort");
-
+  k.setAttribute("aria-label", p.namn + " " + v.namn);
   k.dataset.id = p.id;
   k.dataset.kod = v.kod;
-
   k.innerHTML =
-    '<img src="' + v.bild + '" alt="' + p.namn + ' i ' + v.farg + '">' +
-    '<span class="ta-bort">Ta bort</span>' +
+    '<img src="' + v.bild + '" alt="' + p.namn + '">' +
     '<div class="info">' +
       '<span class="titel">' + p.namn + '</span>' +
-      '<span class="pris-mini">' + v.farg + ' &middot; ' + p.pris + ' kr</span>' +
+      '<span class="pris-mini">' + v.namn + ' - ' + p.pris + ' kr</span>' +
     '</div>';
-
   function taBort(){
     k.remove();
-    sparaOnskelista();
+    spara();
     notis(p.namn + " togs bort");
   }
-  k.addEventListener("click", taBort);
-  k.addEventListener("keydown", function(e){
-    if(e.key == "Enter" || e.key == " " || e.key == "Delete"){
-      e.preventDefault(); taBort();
-    }
-  });
-
-  // ta bort tom-text om den finns
-  var t = onskeYta.querySelector(".tom-text");
-  if(t){ t.remove() }
-
+  k.onclick = taBort;
+  k.onkeydown = function(e){
+    if(e.key == "Enter" || e.key == " " || e.key == "Delete"){ e.preventDefault(); taBort() }
+  };
   onskeYta.appendChild(k);
-  sparaOnskelista();
-  notis(p.namn + " (" + v.farg + ") tillagd");
+  spara();
+  notis(p.namn + " tillagd");
 }
 
-function sparaOnskelista(){
-  var alla = onskeYta.querySelectorAll(".onske-kort");
+function spara(){
   var arr = [];
+  var alla = onskeYta.querySelectorAll(".onske-kort");
   for(var i=0; i<alla.length; i++){
     arr.push({ id: alla[i].dataset.id, kod: alla[i].dataset.kod });
   }
@@ -382,129 +280,65 @@ function sparaOnskelista(){
   uppdateraRaknare();
 }
 
-function laddaOnskelista(){
-  var sparat = localStorage.getItem("onskelista-v3");
-  if(!sparat){ uppdateraRaknare(); return }
-  try{
-    var arr = JSON.parse(sparat);
-    for(var i=0; i<arr.length; i++){
-      var p = hittaProdukt(arr[i].id);
-      if(!p){ continue }
-      var v = hittaVariant(p, arr[i].kod);
-      if(!v){ continue }
-      // bygg utan att spara om (vi ar mitt i ladd)
-      laggTillUtanSpara(p, v);
-    }
-  } catch(err){ console.log("kunde inte lasa onskelista", err) }
-  uppdateraRaknare();
-}
-
-function laggTillUtanSpara(p, v){
-  var k = document.createElement("div");
-  k.className = "onske-kort";
-  k.setAttribute("role","listitem");
-  k.setAttribute("tabindex","0");
-  k.setAttribute("aria-label", p.namn + " " + v.farg);
-  k.dataset.id = p.id;
-  k.dataset.kod = v.kod;
-  k.innerHTML =
-    '<img src="' + v.bild + '" alt="' + p.namn + ' i ' + v.farg + '">' +
-    '<span class="ta-bort">Ta bort</span>' +
-    '<div class="info">' +
-      '<span class="titel">' + p.namn + '</span>' +
-      '<span class="pris-mini">' + v.farg + ' &middot; ' + p.pris + ' kr</span>' +
-    '</div>';
-  function taBort(){
-    k.remove(); sparaOnskelista(); notis(p.namn + " togs bort");
+function ladda(){
+  var s = localStorage.getItem("onskelista-v3");
+  if(!s){ uppdateraRaknare(); return }
+  var arr = JSON.parse(s);
+  for(var i=0; i<arr.length; i++){
+    var p = null, v = null;
+    for(var j=0; j<produkter.length; j++) if(produkter[j].id == arr[i].id) p = produkter[j];
+    if(!p) continue;
+    for(var j=0; j<p.farger.length; j++) if(p.farger[j].kod == arr[i].kod) v = p.farger[j];
+    if(!v) continue;
+    laggTill(p, v);
   }
-  k.addEventListener("click", taBort);
-  k.addEventListener("keydown", function(e){
-    if(e.key == "Enter" || e.key == " " || e.key == "Delete"){
-      e.preventDefault(); taBort();
-    }
-  });
-  var t = onskeYta.querySelector(".tom-text");
-  if(t){ t.remove() }
-  onskeYta.appendChild(k);
+  // ta bort de "tillagd" toasterna som spammats
 }
+ladda();
 
-function hittaProdukt(id){
-  for(var i=0; i<produkter.length; i++){ if(produkter[i].id == id){ return produkter[i] } }
-  return null;
-}
-function hittaVariant(p, kod){
-  for(var i=0; i<p.varianter.length; i++){ if(p.varianter[i].kod == kod){ return p.varianter[i] } }
-  return null;
-}
-
-if(rensaRutorBtn){
-  rensaRutorBtn.addEventListener("click", function(){
-    var alla = onskeYta.querySelectorAll(".onske-kort");
-    for(var i=0; i<alla.length; i++){ alla[i].remove() }
-    localStorage.removeItem("onskelista-v3");
-    uppdateraRaknare();
-    notis("Onskelistan tomdes");
-  });
-}
-
-laddaOnskelista();
+document.getElementById("rensa-rutor").onclick = function(){
+  var alla = onskeYta.querySelectorAll(".onske-kort");
+  for(var i=0; i<alla.length; i++) alla[i].remove();
+  localStorage.removeItem("onskelista-v3");
+  uppdateraRaknare();
+  notis("Onskelistan tomdes");
+};
 
 
-// ============ VADER (Fetch nr 1) - rekommendera produkt ============
-var hamtaVader = document.getElementById("hamta-vader");
-var vaderYta = document.getElementById("vader-yta");
+// vader
+document.getElementById("hamta-vader").onclick = function(){
+  var yta = document.getElementById("vader-yta");
+  yta.textContent = "Hamtar...";
+  fetch("https://api.open-meteo.com/v1/forecast?latitude=59.33&longitude=18.07&current=temperature_2m,wind_speed_10m")
+    .then(function(r){ return r.json() })
+    .then(function(d){
+      var t = d.current.temperature_2m;
+      var v = d.current.wind_speed_10m;
+      var tipsId = "L01";
+      var tipsText = "Nordic Light - lattvikt for varma dagar.";
+      if(t < 0)       { tipsId = "8805";  tipsText = "Storm Puffer - vadderad och vindtat." }
+      else if(t < 8)  { tipsId = "F0445"; tipsText = "Inci Coat - vattentat och varm." }
+      else if(t < 15) { tipsId = "F0473"; tipsText = "Aurora Coat - oversize for hostvader." }
+      else if(t < 22) { tipsId = "F0474"; tipsText = "Forest Bomber - lattare for milda dagar." }
 
-function jackTipsProdukt(t){
-  // returnerar produkt-id + emoji + text
-  if(t < 0)  return { i:"❄️", id:"8805",  text:"Storm Puffer - vadderad och vindtat for iskalla dagar." };
-  if(t < 8)  return { i:"🧥", id:"F0445", text:"Inci Coat - vattentat och vindtat. Var bestseller." };
-  if(t < 15) return { i:"🍂", id:"F0473", text:"Aurora Coat - oversize-snitt for hostvader." };
-  if(t < 22) return { i:"☁️", id:"F0474", text:"Forest Bomber - lattare passform for milda dagar." };
-  return            { i:"☀️", id:"L01",   text:"Nordic Light - lattvikt for varma dagar." };
-}
-
-if(hamtaVader){
-  hamtaVader.addEventListener("click", function(){
-    vaderYta.innerHTML = "Hamtar vader for Stockholm...";
-    fetch("https://api.open-meteo.com/v1/forecast?latitude=59.33&longitude=18.07&current=temperature_2m,wind_speed_10m")
-      .then(function(svar){
-        if(!svar.ok){ throw new Error("api fel") }
-        return svar.json();
-      })
-      .then(function(data){
-        var t = data.current.temperature_2m;
-        var v = data.current.wind_speed_10m;
-        var tip = jackTipsProdukt(t);
-        var produkt = hittaProdukt(tip.id);
-        var bild = produkt ? produkt.varianter[0].bild : "";
-        vaderYta.innerHTML =
-          '<span class="stor">' + tip.i + '</span>' +
-          '<div class="text">' +
-            '<strong>' + t + '°C</strong> i Stockholm, vind ' + v + ' m/s.' +
-            '<span class="tip">Vi rekommenderar: ' + tip.text + '</span>' +
-          '</div>' +
-          (bild ? '<img class="vader-bild" src="' + bild + '" alt="' + (produkt ? produkt.namn : "Rekommenderad jacka") + '">' : '');
-      })
-      .catch(function(err){
-        vaderYta.textContent = "Kunde inte hamta vader just nu.";
-        console.log(err);
-      });
-  });
-}
+      var bild = "";
+      for(var i=0; i<produkter.length; i++){
+        if(produkter[i].id == tipsId){ bild = produkter[i].farger[0].bild; break }
+      }
+      yta.innerHTML =
+        '<div><strong>' + t + '°C</strong> i Stockholm, vind ' + v + ' m/s.<br>Tips: ' + tipsText + '</div>' +
+        (bild ? '<img src="' + bild + '" alt="Tips">' : '');
+    })
+    .catch(function(){ yta.textContent = "Kunde inte hamta vader." });
+};
 
 
-// ============ FAKTA (Fetch nr 2) ============
-var hamtaFakta = document.getElementById("hamta-fakta");
-var faktaText = document.getElementById("fakta-text");
-if(hamtaFakta){
-  hamtaFakta.addEventListener("click", function(){
-    faktaText.textContent = "Hamtar...";
-    fetch("https://uselessfacts.jsph.pl/api/v2/facts/random?language=en")
-      .then(function(s){ if(!s.ok){ throw new Error("api fel") } return s.json() })
-      .then(function(data){ faktaText.textContent = "Visste du: " + data.text })
-      .catch(function(err){
-        faktaText.textContent = "Kunde inte hamta tips just nu. Forsok igen.";
-        console.log(err);
-      });
-  });
-}
+// fakta
+document.getElementById("hamta-fakta").onclick = function(){
+  var p = document.getElementById("fakta-text");
+  p.textContent = "Hamtar...";
+  fetch("https://uselessfacts.jsph.pl/api/v2/facts/random?language=en")
+    .then(function(r){ return r.json() })
+    .then(function(d){ p.textContent = "Visste du: " + d.text })
+    .catch(function(){ p.textContent = "Kunde inte hamta tips." });
+};

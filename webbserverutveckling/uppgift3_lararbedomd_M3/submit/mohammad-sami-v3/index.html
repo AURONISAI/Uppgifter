@@ -1,70 +1,56 @@
-<!DOCTYPE html>
-<!-- M3 niva 3 - Samis Jackets - Produktkatalog (v3)
-     Mohammad Sami Alsharef
-     Riktiga produkter med riktiga foton fran "inci shopify ready"-mappen.
-     Bygger pa M2 design (G&S meny, sage + oliv, Georgia rubriker). -->
+<!doctype html>
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Katalog - Samis Jackets</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samis Jackets - katalog</title>
 <link rel="stylesheet" href="style.css">
 <script src="script.js" defer></script>
 </head>
 <body>
 
-<!-- Sticky meny i samma stil som M2 -->
-<nav class="meny" aria-label="Huvudmeny">
+<nav class="meny">
   <ul>
     <li class="logga-li">
-      <img src="assets/logo.png" alt="Samis Jackets logotyp" class="logga">
+      <img src="assets/logo.png" alt="logo" class="logga">
       <span class="brand">G&amp;S</span>
     </li>
     <li><a href="#katalog">Katalog</a>
     <li><a href="#onske">Onskelista</a>
     <li><a href="#vader">Vader</a>
     <li><a href="#tips">Tips</a>
-    <li><a href="#farg">Tema-farg</a>
-    <li><span id="varukorg-info" class="varukorg-info" aria-live="polite">0 i onskelistan</span>
-    <li><button id="tema-btn" type="button" aria-pressed="false"
-        aria-label="Vaxla mellan ljust och morkt lage">Tema</button>
+    <li><a href="#farg">Farg</a>
+    <li><span id="varukorg-info" class="varukorg-info" aria-live="polite">0 i listan</span>
+    <li><button id="tema-btn" type="button" aria-pressed="false">Tema</button>
   </ul>
 </nav>
 
 
-<!-- HERO -->
-<header class="hero" aria-label="Valkomst">
-  <div class="hero-text">
-    <p class="liten-rubrik">Hostkollektion 2026</p>
-    <h1>Samis Jackets - katalog</h1>
-    <p class="undertitel">Vara mest salda jackor i sex modeller och flera
-    fargvarianter. Filtrera, sortera och bygg din egen onskelista.</p>
-    <a href="#katalog" class="cta">Visa kollektionen</a>
+<header class="hero">
+  <div>
+    <p class="liten-rubrik">Host 2026</p>
+    <h1>Samis Jackets</h1>
+    <p>Vara jackor i sex modeller. Filtrera, sortera och spara dina favoriter.</p>
+    <a href="#katalog" class="cta">Visa katalog</a>
   </div>
   <div class="hero-bild">
-    <img src="assets/produkter/F0473_beige_brown.jpg"
-         alt="Aurora Coat i beige och brun fran Samis Jackets hostkollektion"
-         width="900" height="600">
+    <img src="assets/produkter/F0473_beige_brown.jpg" alt="Aurora Coat">
   </div>
 </header>
 
-
-<div class="animerad-bg" aria-hidden="true"></div>
+<div class="rand"></div>
 
 
 <main>
 
-  <!-- KATALOG -->
-  <section id="katalog" aria-labelledby="r-katalog">
-    <h2 id="r-katalog">Produktkatalog</h2>
-    <p>Klicka pa en jacka for fler bilder och mojligheten att lagga
-    den i din onskelista.</p>
+  <section id="katalog">
+    <h2>Katalog</h2>
+    <p>Klicka pa en jacka for detaljer och farger.</p>
 
-    <!-- filterrad -->
-    <div class="filterrad" role="group" aria-label="Filtrera och sortera">
-      <label for="filter-farg" class="filter-label">Farg</label>
-      <select id="filter-farg" aria-label="Filtrera pa farg">
-        <option value="alla">Alla farger</option>
+    <div class="filterrad">
+      <label for="filter-farg">Farg:</label>
+      <select id="filter-farg">
+        <option value="alla">Alla</option>
         <option value="beige">Beige</option>
         <option value="black">Svart</option>
         <option value="brown">Brun</option>
@@ -72,113 +58,80 @@
         <option value="green">Gron</option>
       </select>
 
-      <label for="sortera" class="filter-label">Sortera</label>
-      <select id="sortera" aria-label="Sortera produkter">
+      <label for="sortera">Sortera:</label>
+      <select id="sortera">
         <option value="standard">Standard</option>
-        <option value="pris-upp">Pris (lagst forst)</option>
-        <option value="pris-ner">Pris (hogst forst)</option>
-        <option value="namn">Namn (A-O)</option>
+        <option value="pris-upp">Pris lagst</option>
+        <option value="pris-ner">Pris hogst</option>
+        <option value="namn">Namn</option>
       </select>
 
-      <span id="antal-info" class="antal-info" aria-live="polite"></span>
+      <span id="antal-info" aria-live="polite"></span>
     </div>
 
-    <div id="katalog-yta" class="katalog-yta" role="list"
-         aria-label="Produktkort i katalogen"></div>
+    <div id="katalog-yta" class="katalog-yta" role="list"></div>
   </section>
 
 
-  <!-- ONSKELISTA -->
-  <section id="onske" aria-labelledby="r-onske">
-    <h2 id="r-onske">Min onskelista</h2>
-    <p>Sparas i webblasarens localStorage. Klick eller Enter pa ett
-    onske-kort tar bort det.</p>
-
-    <div class="rad-knappar">
-      <button id="rensa-rutor" aria-label="Tom hela onskelistan">Rensa allt</button>
-      <span id="raknare" class="raknare" aria-live="polite">0 jackor</span>
-    </div>
-
-    <div id="onske-yta" class="onske-yta" role="list"
-         aria-label="Sparade onskemal">
-      <p class="tom-text">Din onskelista ar tom. Lagg till en jacka fran katalogen ovan.</p>
+  <section id="onske">
+    <h2>Min onskelista</h2>
+    <p>Sparas i localStorage. Klick pa ett kort tar bort det.</p>
+    <button id="rensa-rutor">Rensa allt</button>
+    <span id="raknare" aria-live="polite">0 jackor</span>
+    <div id="onske-yta" class="onske-yta" role="list">
+      <p class="tom-text">Tom. Lagg till en jacka fran katalogen.</p>
     </div>
   </section>
 
 
-  <!-- VADER -->
-  <section id="vader" aria-labelledby="r-vader">
-    <h2 id="r-vader">Vad ska jag ha pa mig?</h2>
-    <p>Hamtar Stockholms vader via <code>open-meteo</code> och
-    rekommenderar en jacka ur var katalog.</p>
-
-    <button id="hamta-vader" aria-label="Hamta vader och jack-tips">Hamta vader-tips</button>
-    <div id="vader-yta" class="vader-yta" role="status" aria-live="polite">(klicka pa knappen)</div>
+  <section id="vader">
+    <h2>Vad ska jag ha pa mig?</h2>
+    <p>Hamtar Stockholms vader och rekommenderar en jacka.</p>
+    <button id="hamta-vader">Hamta tips</button>
+    <div id="vader-yta" aria-live="polite">(klicka pa knappen)</div>
   </section>
 
 
-  <!-- FAKTA -->
-  <section id="tips" aria-labelledby="r-tips">
-    <h2 id="r-tips">Dagens visste-du</h2>
-    <p>Kort fakta-tips fran <code>uselessfacts.jsph.pl</code>.</p>
-
-    <button id="hamta-fakta" aria-label="Hamta nytt visste-du">Hamta tips</button>
-    <p id="fakta-text" role="status" aria-live="polite" class="fakta-text">(inget tips an)</p>
+  <section id="tips">
+    <h2>Visste du</h2>
+    <button id="hamta-fakta">Hamta fakta</button>
+    <p id="fakta-text" aria-live="polite">(inget tips an)</p>
   </section>
 
 
-  <!-- ACCENT-FARG -->
-  <section id="farg" aria-labelledby="r-farg">
-    <h2 id="r-farg">Valj din accentfarg</h2>
-    <p>Andrar accentfargen pa hela sidan. Sparas i localStorage.</p>
-
-    <div class="rad-knappar">
-      <label for="farg-pick">Accentfarg</label>
-      <input type="color" id="farg-pick" value="#82a31a" aria-label="Valj accentfarg">
-      <button id="aterstall-farg" type="button">Aterstall (oliv)</button>
-    </div>
+  <section id="farg">
+    <h2>Valj accentfarg</h2>
+    <p>Andrar fargen pa hela sidan. Sparas.</p>
+    <label for="farg-pick">Farg:</label>
+    <input type="color" id="farg-pick" value="#82a31a">
+    <button id="aterstall-farg" type="button">Aterstall</button>
   </section>
 
 </main>
 
 
-<!-- PRODUKT-MODAL (lightbox) -->
-<div id="modal" class="modal" role="dialog" aria-modal="true"
-     aria-labelledby="modal-namn" aria-hidden="true">
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
   <div class="modal-innehall">
-    <button id="modal-stang" class="modal-stang" type="button"
-            aria-label="Stang produkt">&times;</button>
-
+    <button id="modal-stang" class="modal-stang" type="button" aria-label="Stang">&times;</button>
     <div class="modal-vanster">
       <img id="modal-bild" src="" alt="">
     </div>
-
     <div class="modal-hoger">
       <h3 id="modal-namn"></h3>
-      <p id="modal-beskrivning" class="modal-beskrivning"></p>
-      <p class="modal-pris"><span id="modal-pris"></span></p>
-
-      <div class="modal-fargrad">
-        <span class="filter-label">Farg:</span>
-        <div id="modal-fargvalj" class="modal-fargvalj"
-             role="radiogroup" aria-label="Valj farg"></div>
-      </div>
-
-      <div class="modal-knappar">
-        <button id="modal-lagg-till" type="button">Lagg till i onskelistan</button>
-      </div>
+      <p id="modal-beskrivning"></p>
+      <p class="pris"><span id="modal-pris"></span></p>
+      <div id="modal-fargvalj" class="modal-fargvalj" role="radiogroup" aria-label="Valj farg"></div>
+      <button id="modal-lagg-till" type="button">Lagg till i onskelistan</button>
     </div>
   </div>
 </div>
 
 
-<!-- toast notis -->
-<div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+<div id="toast" class="toast" role="alert"></div>
 
 
 <footer>
-  <p>Mohammad Sami Alsharef &middot; Samis Jackets &middot; Webbutveckling 2 - M3 (v3)</p>
-  <p class="liten">Foto: Samis Jackets produktkatalog &middot; Logo: G&amp;S</p>
+  <p>Mohammad Sami Alsharef - Webbutveckling 2 - M3</p>
 </footer>
 
 </body>
