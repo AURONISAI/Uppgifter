@@ -1,0 +1,137 @@
+Lektion 18: Riktlinjer och lagar
+Riktlinjer, lagar och andra bestämmelser som styr hantering av digital information, däribland upphovsrätt samt bestämmelser som gäller hantering av personuppgifter och användning av kakor.
+
+Syfte
+Syftet med denna lektion är att du ska få kunskap om de lagar och riktlinjer som styr hur digital information hanteras på webben. Du kommer att lära dig om upphovsrätt, GDPR, cookie-lagen och webbtillgänglighetsdirektivet, och vilken påverkan dessa har på hur du utformar och publicerar webbinnehåll. Målet är att du ska förstå varför det är viktigt att följa dessa bestämmelser, inte bara för att uppfylla juridiska krav, utan också för att skapa trygga och användarvänliga webbplatser.
+
+Mål för lektionen
+Efter lektionen ska du kunna:
+- Förklara vad upphovsrätt innebär och ge exempel på tillåten och otillåten användning av material.
+- Redogöra för vad GDPR kräver av dig som webbutvecklare vid hantering av personuppgifter.
+- Förstå när samtycke krävs för cookies och hur en cookie-banner fungerar.
+- Känna till grundkrav i webbtillgänglighetsdirektivet och ge exempel på tillgänglighetsanpassning.
+
+Planering och strategi
+Börja med att läsa igenom varje lagområde noggrant. Tänk på att detta inte bara handlar om teori – varje regel du lär dig påverkar hur du ska koda, designa och publicera. Försök att koppla det du läser till konkreta exempel: Har du någon gång använt en bild från nätet utan att tänka på upphovsrätten? Eller sett en cookie-banner och undrat hur den fungerar? Undersök gärna hur stora webbplatser löser dessa krav – titta exempelvis på hur deras samtycke inhämtas eller hur de visar tillgänglighetsfunktioner. Använd frågorna nedan för att rikta ditt fokus.
+
+Frågor inför lektionen
+Fundera på följande frågor:
+- Hur skiljer sig en fri bild (t.ex. från Unsplash) från en skyddad bild, och varför spelar det roll?
+- Vad händer om du samlar in e-postadresser utan samtycke – vilka risker finns det?
+- Hur kan du tekniskt genomföra en cookie-banner som följer lagen?
+- På vilket sätt hjälper ARIA-attribut och kontrastkrav personer med funktionsvariation?
+
+Webbutveckling omfattas av olika lagar och regler som skyddar användares personuppgifter, upphovsrätt och integritet. Att följa dessa riktlinjer är avgörande för att skapa en juridiskt säker webbplats.
+
+
+1. Upphovsrätt (Copyright)
+Upphovsrättslagen skyddar text, bilder, video och kod från att kopieras och användas utan tillstånd.
+
+1.1 Vad innebär upphovsrätt?
+- Upphovsmannen har rätt till sitt verk och bestämmer hur det får användas.
+- Allt digitalt material omfattas av upphovsrätten, även bilder och text från internet.
+
+1.2 Exempel på laglig och olaglig användning av material
+Tillåten användning (Creative Commons-licens):
+<img src="https://source.unsplash.com/random" alt="Fri bild från Unsplash">
+<p>Bild från Unsplash, fri att använda.</p>
+
+Olaglig användning (Skyddad bild utan tillstånd):
+<img src="https://www.nyhetssida.se/logo.png" alt="Olagligt kopierad logotyp">
+
+Lösning: Använd Creative Commons (CC)-licensierade bilder eller skapa egna.
+Resurser för fria bilder och typsnitt:
+- Unsplash
+- Pexels
+- Google Fonts
+
+
+2. GDPR (General Data Protection Regulation)
+GDPR är en EU-lag som reglerar hantering av personuppgifter för att skydda användarnas integritet.
+
+2.1 Vad räknas som personuppgifter?
+- Personuppgifter inkluderar namn, e-post, IP-adress, personnummer, platsdata m.m.
+- Exempel på känsliga uppgifter: Hälsouppgifter, religion, politiska åsikter.
+
+2.2 Krav enligt GDPR
+- Samtycke måste inhämtas om personuppgifter lagras.
+- Användare har rätt att få sina uppgifter raderade ("Rätten att bli glömd").
+- Dataintrång ska rapporteras inom 72 timmar.
+
+Exempel på GDPR-anpassat formulär med samtycke:
+<form action="/registrera" method="post">
+    <label for="email">E-post:</label>
+    <input type="email" id="email" name="email" required>
+
+    <input type="checkbox" id="consent" name="consent" required>
+    <label for="consent">Jag godkänner att mina uppgifter lagras enligt GDPR.</label>
+
+    <button type="submit">Skicka</button>
+</form>
+
+
+3. Cookies och ePrivacy-direktivet
+Cookies (kakor) används för att lagra information i en webbläsares minne. Enligt ePrivacy-direktivet ("cookie-lagen") måste webbplatser informera om och inhämta samtycke innan cookies används.
+
+3.1 När behövs samtycke för cookies?
+Behövs: För spårning, marknadsföring och analys.
+Behövs ej: För nödvändiga cookies, exempelvis inloggning och varukorg.
+
+Exempel på en cookie-banner enligt GDPR:
+<div id="cookie-banner">
+    <p>Vi använder cookies för att förbättra din upplevelse. Genom att fortsätta godkänner du detta.</p>
+    <button onclick="acceptCookies()">Godkänn</button>
+</div>
+
+<script>
+function acceptCookies() {
+    document.getElementById("cookie-banner").style.display = "none";
+    document.cookie = "cookiesAccepted=true; path=/";
+}
+</script>
+
+Lösning: Använd localStorage eller document.cookie för att komma ihåg valet.
+
+Verktyg för cookiehantering:
+- Cookiebot
+- Osano
+
+
+4. Webbtillgänglighetsdirektivet
+Lagen kräver att offentliga webbplatser och appar ska vara tillgängliga för alla.
+
+4.1 Krav på tillgänglighet enligt WCAG 2.1
+- Hög kontrast mellan text och bakgrund.
+- Webbplatsen ska fungera med tangentbord och skärmläsare.
+- Videor ska ha undertexter.
+
+Exempel på tillgänglighetsanpassad knapp:
+<button aria-label="Öppna meny">Meny</button>
+
+Använd aria-label för att beskriva knappar för skärmläsare.
+
+
+5. Lagar kring digital marknadsföring
+Marknadsföring via e-post och sociala medier regleras av marknadsföringslagen.
+
+Grundläggande regler:
+- Mottagaren måste ha gett samtycke för nyhetsbrev.
+- Det måste vara enkelt att avregistrera sig.
+
+Exempel på en avregistreringslänk i e-postutskick:
+<p>Vill du inte få fler mejl? <a href="unsubscribe.html">Avregistrera dig här</a></p>
+
+
+6. Sammanfattning av riktlinjer och lagar
+
+
+Sammanfattning
+Lektionens viktigaste innehåll:
+- Upphovsrätt skyddar allt digitalt innehåll – du måste ha tillstånd eller använda fria resurser.
+- GDPR kräver samtycke för hantering av personuppgifter, och användare har rättigheter kring sina data.
+- Cookies som inte är tekniskt nödvändiga kräver användarens samtycke enligt ePrivacy-direktivet.
+- Webbtillgänglighetsdirektivet kräver att webbplatser fungerar för alla användare, t.ex. via tangentbordsnavigering och hög kontrast.
+- E-postmarknadsföring styrs av marknadsföringslagen – mottagare måste ge sitt medgivande.
+
+Reflektion vidare
+Hur kan du integrera dessa regler i dina framtida projekt? Finns det lagar du redan följer utan att tänka på det – eller områden där du behöver förbättra dig? Reflektera över hur du kan bygga webbplatser som inte bara är tekniskt bra, utan också säkra, tillgängliga och etiskt hållbara. Kan du skapa egna mallar eller checklistor som hjälper dig att följa dessa riktlinjer i praktiken?

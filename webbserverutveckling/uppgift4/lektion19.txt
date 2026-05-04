@@ -1,0 +1,163 @@
+Lektion 19: Etiska överväganden i samband med webbutveckling
+
+Syfte
+Syftet med denna lektion är att du ska förstå det etiska ansvar du har som webbutvecklare. Att bygga en webbplats handlar inte bara om kod och design – det handlar också om att skydda användarnas integritet, undvika vilseledande mönster, främja tillgänglighet och bidra till en hållbar digital miljö. Du ska få verktyg för att fatta medvetna beslut kring hur du samlar in data, utformar gränssnitt, hanterar säkerhet och publicerar innehåll, så att du kan skapa lösningar som är både ansvarsfulla och inkluderande.
+
+Mål för lektionen
+Efter lektionen ska du kunna:
+- Redogöra för etiska risker vid insamling av data och hur dessa kan undvikas.
+- Ge exempel på Dark Patterns och förklara varför de är problematiska.
+- Förklara hur etisk webbutveckling främjar tillgänglighet och säkerhet.
+- Resonera kring hållbarhet och ansvarsfull användning av öppen källkod.
+
+Planering och strategi
+Läs lektionstexten med fokus på att förstå skillnaden mellan etiskt och oetiskt handlande i olika situationer. Försök koppla innehållet till dina egna erfarenheter som användare – har du någon gång blivit lurad av ett gränssnitt? Har du tänkt på hur mycket energi en tung webbsida förbrukar? Skriv ner konkreta exempel, och fundera över hur du som utvecklare kan agera annorlunda. Använd koden i texten som stöd för att se hur du tekniskt kan skapa lösningar som skyddar integritet, stärker säkerheten och främjar tillgänglighet.
+
+Frågor inför lektionen
+Fundera på följande:
+- Hur kan du visa respekt för användarens data utan att offra funktionalitet?
+- Varför är det oetiskt att använda förvalda kryssrutor för att få samtycke?
+- Hur påverkar webbsidans prestanda miljön – och vad kan du göra för att minska den påverkan?
+- Vilket ansvar har du om du publicerar kod som kan användas av andra?
+
+Etik inom webbutveckling handlar om att bygga webbplatser och applikationer på ett ansvarsfullt, rättvist och inkluderande sätt. Det omfattar användarnas integritet, säkerhet, tillgänglighet och påverkan på samhället.
+
+
+1. Användarnas integritet
+Webbplatser samlar ofta in data om sina användare, men det måste ske på ett etiskt sätt.
+
+1.1 Insamling av data – Vad är okej och inte?
+Oetiskt: Samla in personlig data utan samtycke.
+Etiskt: Be om tydligt godkännande och lagra så lite data som möjligt.
+
+Exempel på ett GDPR-anpassat formulär med valfri datainsamling:
+<form action="/registrera" method="post">
+    <label for="email">E-post:</label>
+    <input type="email" id="email" name="email" required>
+    <input type="checkbox" id="newsletter" name="newsletter">
+    <label for="newsletter">Jag vill ta emot nyhetsbrev</label>
+    <button type="submit">Skicka</button>
+</form>
+Användaren väljer själv om de vill ta emot nyhetsbrev.
+
+
+2. Manipulativa designmönster (Dark Patterns)
+Dark Patterns är designtrick som lurar användare att göra oönskade val.
+
+2.1 Exempel på oetiska Dark Patterns
+- Dold avregistreringsknapp – Svårt att lämna en tjänst.
+- Förvalt samtycke för reklammejl – Användaren måste aktivt avmarkera.
+- Falska tidsbegränsade erbjudanden – "Endast 3 platser kvar!" även när det inte stämmer.
+
+Exempel på en oetisk checkbox för nyhetsbrev:
+<input type="checkbox" id="newsletter" name="newsletter" checked>
+<label for="newsletter">Jag vill få reklam</label>
+
+Oetiskt: Checkboxen är förbockad, vilket lurar användaren att missa att de anmäler sig.
+
+Etiskt alternativ:
+<input type="checkbox" id="newsletter" name="newsletter">
+<label for="newsletter">Jag vill få nyhetsbrev</label>
+
+
+3. Digital tillgänglighet – Webbplatser ska fungera för alla
+Webbplatser ska vara tillgängliga även för personer med funktionsnedsättningar.
+
+3.1 Tillgänglighetsetik
+Oetiskt:
+- Sakna alternativtext för bilder.
+- Inte erbjuda tangentbordsnavigering.
+- Ignorera färgkontrast och svårlästa typsnitt.
+
+Etiskt:
+- Använda alt-text för bilder.
+- Erbjuda textning av videor.
+- Se till att webbplatsen är användbar med skärmläsare.
+
+Exempel på en bild med alt-text för skärmläsare:
+<img src="meny.jpg" alt="Restaurangmeny med tre rätter">
+
+
+4. Användarsäkerhet och kryptering
+Webbutvecklare har ett etiskt ansvar att skydda användardata.
+
+4.1 Säker hantering av lösenord
+Oetiskt: Spara lösenord i klartext i databasen.
+Etiskt: Hasha och salta lösenord innan de lagras.
+
+Exempel på lösenordshashning med bcrypt i Node.js (ingår ej i kursen, endast som exempel):
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const hashedPassword = bcrypt.hashSync("mittsäkralösenord", saltRounds);
+Lagrar lösenordet säkert istället för i klartext.
+
+
+5. Algoritmers påverkan och diskriminering
+
+5.1 Algoritmer kan vara partiska
+Många webbplatser använder AI och algoritmer för att rekommendera innehåll, men de kan omedvetet diskriminera.
+
+Exempel på etiska problem:
+- En anställningsalgoritm som prioriterar män eftersom träningsdatan innehöll fler manliga kandidater.
+- En låneansökningsalgoritm som nekar kredit baserat på fördomsfulla datauppsättningar.
+
+Lösning:
+- Granska träningsdatan och säkerställ att den är inkluderande.
+- Transparens – förklara hur algoritmer fungerar för användare.
+
+
+6. Hållbarhet och energieffektivitet
+Webbutveckling påverkar miljön genom energiförbrukning.
+
+6.1 Hur kan vi bygga hållbara webbplatser?
+- Optimera bilder och minifiera kod för att minska sidladdningstider.
+- Använd grön hosting (ex. servrar som drivs med förnybar energi).
+- Undvik onödig JavaScript-användning som belastar processorkraften.
+
+Exempel på att minska sidans storlek genom att använda WebP istället för PNG:
+<picture>
+    <source srcset="bild.webp" type="image/webp">
+    <img src="bild.jpg" alt="Optimerad bild">
+</picture>
+
+Vad gör varje del?
+<picture>
+Detta är ett omslutande element som gör det möjligt att specificera flera bildformat. Webbläsaren väljer automatiskt det format som den bäst stödjer.
+
+<source srcset="bild.webp" type="image/webp">
+Här anges att om webbläsaren stödjer WebP-format, så ska den visa bilden bild.webp. WebP är ett modernt bildformat som ger bättre komprimering än JPEG och PNG, vilket innebär snabbare laddning och mindre datamängd.
+
+<img src="bild.jpg" alt="Optimerad bild">
+Detta är standardbilden i JPEG-format. Den används om webbläsaren inte klarar av WebP. Dessutom är alt="Optimerad bild" en alt-text som hjälper skärmläsare och förbättrar tillgänglighet för personer som inte kan se bilden.
+
+I skrivande stund stödjer ca 96% av användarnas webbläsare WebP så man hade kunnat skriva så här också:
+<img src="bild.webp" alt="Optimerad bild">
+
+
+7. Öppen källkod och samarbete
+Öppen källkod ger alla tillgång till programkod, vilket kan vara positivt för innovation men också leda till missbruk.
+
+7.1 Exempel på etiska frågor inom öppen källkod
+Negativt: Koden kan användas i skadliga syften (ex. hacking).
+Positivt: Gratis tillgång till programvara och möjlighet att förbättra den.
+
+Exempel på en öppen källkodslicens i README.md:
+# MIT License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+Varför? Licenser som MIT eller GPL säkerställer att koden används på ett rättvist sätt.
+
+
+8. Sammanfattning av etiska riktlinjer inom webbutveckling
+
+
+Sammanfattning
+Lektionens viktigaste innehåll:
+- Etisk webbutveckling handlar om integritet, transparens och respekt för användaren.
+- Samtycke ska alltid inhämtas innan data lagras – användaren måste ha kontroll.
+- Dark Patterns vilseleder användare och bör undvikas till förmån för tydliga val.
+- Tillgänglighet, säkerhet (t.ex. lösenordshantering) och hållbarhet är viktiga delar av det etiska ansvaret.
+- Öppen källkod är positivt, men kräver tydliga licenser för att undvika missbruk.
+
+Reflektion vidare
+Hur påverkar dina val som utvecklare användarnas upplevelse och rättigheter? Tänk på vilka steg du kan ta för att göra ditt arbete mer etiskt. Kan du skapa egna riktlinjer eller checklistor för att säkerställa att dina projekt följer god etik? Fundera också på hur du kan föra vidare dessa principer när du samarbetar med andra – hur kan du bidra till ett mer ansvarsfullt och hållbart webbutvecklingssamhälle?

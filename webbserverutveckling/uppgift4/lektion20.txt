@@ -1,0 +1,212 @@
+Lektion 20: Säker kod
+Hot och sårbarheter som dynamiska lösningar riskerar att medföra samt hur dessa kan motverkas.
+
+Syfte
+Syftet med denna lektion är att du ska förstå de säkerhetsrisker som kan uppstå när du bygger dynamiska webbplatser, särskilt risken för XSS-attacker (Cross-Site Scripting). Du kommer att lära dig hur dessa attacker fungerar, hur de kan utnyttjas för att stjäla data eller skada användare, och hur du skyddar din webbplats med säker kod, filtrering och säkerhetspolicys. Du får även en inblick i hur starka lösenord och tvåfaktorsautentisering bidrar till att skydda användarkonton.
+
+Mål för lektionen
+Efter lektionen ska du kunna:
+- Förklara vad XSS är och ge exempel på olika typer av attacker.
+- Identifiera osäker kod som kan leda till XSS och föreslå säkra alternativ.
+- Beskriva hur Content Security Policy (CSP) fungerar som skydd.
+- Redogöra för grundläggande skydd mot lösenordsattacker.
+
+Planering och strategi
+Börja med att läsa igenom förklaringen av XSS noggrant och försök förstå hur angripare kan utnyttja vanliga kodmönster. Testa gärna koden i ett eget projekt – skapa en enkel sida med ett formulär och pröva hur skadlig kod kan injiceras. Använd därefter textContent och filtreringsfunktioner för att skydda din kod. Fundera på hur dessa lösningar kan användas i större projekt. När du arbetar med lösenord – tänk på hur du själv som användare väljer lösenord och varför det är viktigt att de skyddas. Titta på hur stora webbplatser implementerar säkerhet – t.ex. med 2FA.
+
+Frågor inför lektionen
+Fundera på följande:
+- Vad kan hända om du använder innerHTML utan att filtrera användarinmatning?
+- Hur fungerar Content Security Policy och varför är det effektivt mot attacker?
+- Vad innebär lösenordshashning och varför ska lösenord aldrig sparas i klartext?
+- Har du någon gång använt ett svagt lösenord – hur kunde det ha utnyttjats?
+
+Cross-Site Scripting (XSS) är en säkerhetsrisk där angripare kan injicera skadlig JavaScript-kod i en webbplats. Denna kod kan sedan köras i andra användares webbläsare för att:
+- Stjäla inloggningsuppgifter (cookies)
+- Manipulera webbsidans innehåll
+- Skicka skadliga förfrågningar
+
+I denna kurs lär du dig:
+- Hur XSS fungerar
+- Olika typer av XSS-attacker
+- Hur du skyddar din webbplats med säker JavaScript-kod
+
+
+1. Vad är Cross-Site Scripting (XSS)?
+XSS sker när en webbplats accepterar och kör oskyddad JavaScript-kod från en användares inmatning.
+
+Exempel på en XSS-attack:
+<input type="text" id="userInput">
+<button onclick="submitInput()">Skicka</button>
+<p id="output"></p>
+<script>
+function submitInput() {
+    let input = document.getElementById("userInput").value;
+    document.getElementById("output").innerHTML = input; // Farligt!
+}
+</script>
+
+Angriparen skriver in:
+<script>alert('Du har blivit hackad!')</script>
+Denna kod exekveras och visar en alert-ruta i alla besökares webbläsare.
+
+
+2. Typer av XSS-attacker
+
+2.1 Reflekterad XSS (Reflected XSS)
+- JavaScript exekveras när användaren klickar på en manipulerad länk.
+- Vanligt i sökfält eller formulär som returnerar oskyddad inmatning.
+
+Exempel på en osäker JavaScript-baserad sökning:
+<input type="text" id="search">
+<button onclick="search()">Sök</button>
+<p id="result"></p>
+<script>
+function search() {
+    let query = location.search.split("=")[1];
+    document.getElementById("result").innerHTML = query; // Osäker!
+}
+</script>
+
+Angriparen skickar en länk:
+https://sårbarsida.com?search=<script>alert('Hacked!')</script>
+När någon besöker länken exekveras skadlig JavaScript-kod.
+
+
+2.2 Lagrad XSS (Stored XSS)
+- Skadlig JavaScript-kod lagras permanent på webbplatsen.
+- Kan ske i kommentarer, chattmeddelanden eller användarnamn.
+
+Exempel på en osäker JavaScript-baserad chatt:
+<input type="text" id="message">
+<button onclick="sendMessage()">Skicka</button>
+<div id="chat"></div>
+<script>
+let messages = [];
+function sendMessage() {
+    let msg = document.getElementById("message").value;
+    messages.push(msg);
+    updateChat();
+}
+
+function updateChat() {
+    document.getElementById("chat").innerHTML = messages.join("<br>"); // Farligt!
+}
+</script>
+
+Angriparen skriver:
+<script>document.body.innerHTML = 'Hacked!';</script>
+Alla besökare som öppnar chatten får sin sida manipulerad.
+
+
+2.3 DOM-baserad XSS
+- Uppstår när JavaScript på klient-sidan hanterar indata utan att filtrera det.
+- Kan ske utan att webbservern är inblandad.
+
+Exempel på sårbar JavaScript-kod som läser från URL:
+<p id="message"></p>
+<script>
+document.getElementById("message").innerHTML = location.hash.substring(1);
+// Sårbart!
+</script>
+
+Angriparen skickar en länk:
+https://dinwebbplats.com#<script>alert('Hacked!')</script>
+När någon besöker länken exekveras koden.
+
+
+3. Hur du skyddar din webbplats från XSS
+
+3.1 Använd textContent istället för innerHTML
+Osäker kod:
+document.getElementById("output").innerHTML = userInput;
+
+Säker kod:
+document.getElementById("output").textContent = userInput;
+
+Varför?
+textContent tolkar innehållet som ren text istället för HTML-kod, vilket förhindrar att JavaScript körs.
+
+
+3.2 Filtrera och validera användarinmatning
+Använd en funktion för att ta bort skadliga tecken:
+function sanitizeInput(input) {
+    return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+Exempel på säker implementation:
+<input type="text" id="userInput">
+<button onclick="submitInput()">Skicka</button>
+<p id="output"></p>
+<script>
+function submitInput() {
+    let input = document.getElementById("userInput").value;
+    document.getElementById("output").innerHTML = sanitizeInput(input);
+}
+function sanitizeInput(input) {
+    return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+</script>
+Nu kan inte angriparen injicera JavaScript-kod.
+
+
+3.3 Använd Content Security Policy (CSP)
+CSP förhindrar att osäker JavaScript exekveras genom att begränsa vilka källor som får köras.
+
+Lägg till detta i <head> i din HTML:
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+
+Effekt:
+- Förhindrar XSS-attacker genom att blockera externa JavaScript-källor.
+- Stoppar eval() och innerHTML-baserade attacker.
+
+
+4. Övningar
+1. Testa en XSS-sårbarhet
+   - Skapa en webbsida med en <input>-ruta.
+   - Använd innerHTML för att visa inmatningen.
+   - Testa att injicera en <script>-tagg.
+
+2. Åtgärda XSS i en webbsida
+   - Byt ut innerHTML mot textContent.
+   - Lägg till en funktion för att filtrera bort <script>-taggar.
+
+3. Implementera CSP
+   - Lägg till Content-Security-Policy i en HTML-sida.
+   - Försök injicera externt JavaScript och se om det blockeras.
+
+
+5. Lösenordsattacker
+Hackare kan försöka gissa lösenord genom brute force-attacker eller genom att stjäla inloggningsuppgifter.
+
+5.1 Hur man motverkar lösenordsattacker
+- Kräv starka lösenord (minst 12 tecken, stora och små bokstäver, siffror, specialtecken).
+- Begränsa antalet inloggningsförsök (rate limiting).
+- Använd tvåfaktorsautentisering (2FA).
+- Spara aldrig lösenord i klartext – använd hashning.
+
+Exempel på lösenordshashning med bcrypt i Node.js (utanför kursens omfattning, endast som exempel):
+const bcrypt = require('bcrypt');
+let saltRounds = 10;
+let hashedPassword = bcrypt.hashSync("mittsäkralösenord", saltRounds);
+
+
+Sammanfattning
+- XSS kan användas för att stjäla data och manipulera sidor.
+- Reflekterad XSS skickas via URL, lagrad XSS sparas i databasen och DOM-XSS sker direkt i JavaScript.
+- Skydda din webbplats genom att:
+  1. Använda textContent istället för innerHTML.
+  2. Filtrera och validera inmatning.
+  3. Implementera Content Security Policy (CSP).
+- Tänk på val av lösenord.
+
+Sammanfattning för hela lektionen
+Lektionens viktigaste innehåll:
+- XSS-attacker sker när skadlig JavaScript-kod tillåts köras i användarens webbläsare.
+- Tre typer: Reflekterad XSS (via URL), Lagrad XSS (i databas), DOM-XSS (via JavaScript).
+- Skyddsåtgärder: Använd textContent, filtrera inmatning, implementera Content Security Policy (CSP).
+- Lösenordsattacker kan motverkas genom starka lösenord, begränsade inloggningsförsök och tvåfaktorsautentisering.
+- Lösenord ska alltid hashas innan lagring – t.ex. med bcrypt.
+
+Reflektion vidare
+Hur säker är din egen kod? Kan du tänka på tillfällen där du använt innerHTML utan att reflektera över risken? Fundera över hur du kan göra säkerhet till en naturlig del av din utvecklingsprocess. Hur kan du skapa mallar och rutiner som hjälper dig skydda användare i framtida projekt? Tänk också på hur din kod påverkar andras säkerhet – vilken roll har du som utvecklare i att förebygga hot på webben?

@@ -1,0 +1,201 @@
+Lektion 17: Webbutvecklingsprocessen
+Utvecklingsprocessen för ett webbprojekt med målsättning, planering och specifikation av struktur och design. Kodning, optimering, testning, dokumentation och uppföljning.
+
+Syfte
+Syftet med denna lektion är att du ska få förståelse för hur ett webbprojekt genomförs från idé till färdig produkt. Du kommer att lära dig planera, strukturera och dokumentera ditt arbete enligt etablerade metoder. Genom att studera varje fas i processen – från målsättning och kravspecifikation till kodning, testning och lansering – får du insikt i hur professionella webbutvecklare arbetar. Detta hjälper dig inte bara i framtida projekt utan ger också bättre förutsättningar att skapa webblösningar som är funktionella, tillgängliga och hållbara.
+
+Mål för lektionen
+Efter lektionen ska du kunna:
+- Beskriva de viktigaste stegen i ett webbutvecklingsprojekt.
+- Förklara syftet med kravspecifikation, wireframes och prototyper.
+- Förstå hur optimering och testning påverkar webbplatsens funktionalitet och användbarhet.
+
+Planering och strategi
+För att få ut så mycket som möjligt av lektionen bör du arbeta metodiskt. Börja med att läsa genomgången om utvecklingsprocessen noggrant. Försök att koppla det du läser till egna erfarenheter – har du någon gång planerat ett projekt eller försökt skapa något från grunden? Reflektera över vilka steg du kanske missat och hur en tydlig struktur kan hjälpa dig bli mer effektiv. Skriv gärna ned frågor eller begrepp du vill fördjupa. Använd även de verktyg som föreslås i texten, som t.ex. Figma eller Lighthouse, för att testa och konkretisera dina kunskaper.
+
+Frågor inför lektionen
+För att förbereda dig, fundera över följande:
+- Varför är det viktigt att skapa en kravspecifikation innan man börjar koda?
+- Vad kan hända om en webbplats lanseras utan ordentlig testning?
+- Vilka verktyg och metoder kan du använda för att optimera en webbsida?
+
+Utvecklingsprocessen för ett webbprojekt
+Ett webbprojekt genomgår flera faser för att säkerställa att slutprodukten blir funktionell, optimerad och användarvänlig. Här är en exempelprocess från idé till färdig webblösning.
+
+1. Målsättning och kravspecifikation
+Ett webbprojekt börjar med att definiera syfte och mål. Här formuleras:
+- Målgrupp (Vilka användare riktar sig webbplatsen till?)
+- Huvudsyfte (Informativ, e-handel, interaktiv plattform?)
+- Funktionalitet (Inloggning, API-kopplingar, sökfunktioner?)
+
+Exempel på målsättning
+Projekt: Bygga en responsiv webbplats för en lokal restaurang.
+Mål:
+- Ge kunder tillgång till menyn online.
+- Möjliggöra bordsbokning via ett formulär.
+- SEO-optimerad och mobilanpassad design.
+
+Exempel på en kravspecifikation
+
+
+2. Planering och struktur
+När kraven är fastställda skapas en projektplan.
+
+2.1 Sitemap (Webbplatsstruktur)
+En sitemap visar sidornas relationer.
+Exempel på en enkel sitemap:
+/ (Startsida)
+├── /meny (Meny)
+├── /boka (Boka bord)
+├── /kontakt (Kontakt)
+
+2.2 Wireframe (skiss av sidornas layout)
+En wireframe visar en visuell struktur innan design skapas.
+Exempel på wireframe-struktur för startsidan:
+
++-----------------------------+
+| LOGO | MENY | KONTAKT       |
++-----------------------------+
+|        HUVUDRUBRIK          |
+|   [Bild på restaurangen]    |
++-----------------------------+
+|     [Boka bord-knapp]       |
++-----------------------------+
+
+Verktyg för wireframes:
+- Figma
+- Adobe XD
+- Balsamiq
+
+
+3. Design och prototyp
+
+3.1 Skapa en UI-design
+Färgval, typsnitt och layout bestäms utifrån designprinciper.
+Exempel på färgval för en restaurangsida:
+:root {
+    --primary-color: #C0392B; /* Röd */
+    --secondary-color: #2C3E50; /* Mörkblå */
+}
+
+Verktyg för UI-design:
+- Figma
+- Adobe XD
+- Sketch
+
+
+4. Kodning av webbplatsen
+
+4.1 Skapa grundläggande HTML-struktur
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurangens namn</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Välkommen till Restaurangen</h1>
+    </header>
+    <main>
+        <button onclick="bokaBord()">Boka bord</button>
+    </main>
+</body>
+</html>
+
+4.2 Responsiv CSS
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+4.3 Enkel JavaScript-funktion
+function bokaBord() {
+    alert("Din bordsbokning har skickats!");
+}
+
+
+5. Optimering av webbplatsen
+Efter att webbplatsen är kodad, optimeras den för att ladda snabbare.
+
+5.1 Bildoptimering
+Använd WebP-format istället för PNG/JPG.
+Exempel:
+<picture>
+    <source srcset="bild.webp" type="image/webp">
+    <img src="bild.jpg" alt="Restaurangens interiör">
+</picture>
+
+5.2 Minifiera CSS och JavaScript
+Före minifiering (vanlig CSS-fil):
+body {
+    background-color: white;
+    font-size: 16px;
+}
+
+Efter minifiering:
+body{background-color:white;font-size:16px}
+
+Verktyg för minifiering:
+- CSSNano
+- UglifyJS
+
+
+6. Testning
+Före lansering testas webbplatsen.
+
+6.1 Testning av responsivitet
+- Chrome DevTools (F12 → Toggle Device Toolbar).
+- Testa på riktiga enheter.
+
+6.2 Testning av prestanda
+- Google Lighthouse analyserar laddningstid.
+
+
+7. Dokumentation
+Bra dokumentation hjälper utvecklare och användare att förstå projektet. Man skapar en README.md-fil som:
+- Underlättar framtida underhåll
+- Hjälper teammedlemmar förstå strukturen
+- Visar vilka tekniker som används
+
+Exempel på README.md-fil:
+# Restaurangens webbplats
+## Funktioner
+- Responsiv design
+- Bordsbokning via formulär
+- Google Maps-integration
+
+## Teknologier
+- HTML5, CSS3, JavaScript
+
+
+8. Lansering och uppföljning
+När webbplatsen är testad och optimerad, lanseras den.
+
+8.1 Publicering på en server
+Exempel på att använda GitHub Pages:
+git add .
+git commit -m "Första versionen"
+git push origin main
+
+Det går att göra denna publicering utan att använda Git. Se en introduktionsfilm om hur du publicerar med GitHub Pages.
+
+8.2 Uppföljning och förbättringar
+- Använd Google Analytics för att analysera trafik.
+- A/B-testning för att förbättra användarupplevelsen.
+
+
+Sammanfattning av utvecklingsprocessen
+
+Sammanfattning
+Lektionens viktigaste innehåll:
+- Webbutveckling sker i flera steg: målsättning, planering, design, kodning, optimering, testning, dokumentation och lansering.
+- Kravspecifikation och wireframes ger struktur och tydlig riktning för projektet.
+- Optimering (t.ex. minifiering och bildkomprimering) förbättrar prestanda.
+- Testning säkerställer att webbplatsen fungerar på olika enheter och är tillgänglig för alla användare.
+
+Reflektion vidare
+Hur kan du tillämpa denna struktur i ditt eget arbete med webbutveckling? Fundera på om du ibland hoppar över planeringsfaserna och vad det innebär för slutresultatet. Reflektera också över hur du kan använda verktyg som Lighthouse eller Google Analytics för att förbättra dina framtida projekt.
